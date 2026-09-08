@@ -46,8 +46,8 @@
             </div>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-select-tag-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-select-tag-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-select-overlay"
