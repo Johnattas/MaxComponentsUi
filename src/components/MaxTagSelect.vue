@@ -214,7 +214,7 @@
         let text = contrastColor(background);
         if (color_string === 'unset' && !is_value) {
             background = hover ? 'rgba(0,0,0, 0.1)' : 'transparent';
-            text = hover ? 'var(--background-750)' : 'var(--background-650)';
+            text = hover ? 'var(--background-775)' : 'var(--background-700)';
         }
 
         return {
@@ -464,7 +464,7 @@
 
     .tab-placeholder-select {
         position: absolute;
-        color: var(--background-600);
+        color: var(--background-650);
         font-size: 0.9rem;
         z-index: 1;
         display: grid;

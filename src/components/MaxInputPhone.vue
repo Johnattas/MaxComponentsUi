@@ -18,7 +18,7 @@
                         <div class="item-flag">
                             <img :src="'https://flagcdn.com/w40/' + country.sigla.toLowerCase() + '.png'" alt="bandeira" flex />
                         </div>
-                        <div class="label-flag" style="color: var(--background-600);">+ {{ country.value }}</div>
+                        <div class="label-flag" style="color: var(--background-700);">+ {{ country.value }}</div>
                     </div>
                 </div>
             </div>
@@ -464,17 +464,17 @@
     gap: 10px;
 
     .icon-div {
-        color: var(--background-650) !important;
+        color: var(--background-700) !important;
     }
 
     &:hover {
         .icon-div {
-            color: var(--background-650) !important;
+            color: var(--background-700) !important;
         }
     }
 
     .subLabel {
-        color: var(--background-600);
+        color: var(--background-650);
         padding-left: 1rem;
         text-align: right;
         width: 100%;
@@ -484,7 +484,7 @@
     .labelz {
         display: grid;
         place-items: center;
-        color: var(--background-750);
+        color: var(--background-775);
     }
 
     img {

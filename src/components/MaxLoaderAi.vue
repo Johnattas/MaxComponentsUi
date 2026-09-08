@@ -42,7 +42,7 @@
 
             .item-label {
                 padding-top: 20px;
-                color: var(--background-600);
+                color: var(--background-650);
             }
         }
 

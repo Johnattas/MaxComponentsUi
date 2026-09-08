@@ -399,7 +399,7 @@
     .max-table-fields-empty-cell {
         padding: 24px;
         text-align: center;
-        color: var(--background-600);
+        color: var(--background-650);
         font-style: italic;
     }
 

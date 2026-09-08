@@ -129,7 +129,7 @@
                 z-index: 1;
                 font-family: Jost, sans-serif !important;
                 font-size: 0.85rem;
-                color: var(--background-700);
+                color: var(--background-750);
 
                 &::after {
                     content: '';
@@ -175,7 +175,7 @@
                 }
 
                 .input-toggle-field-label {
-                    color: var(--background-650);
+                    color: var(--background-700);
                     font-weight: 400;
 
                     &.active {

@@ -105,7 +105,7 @@
             &.dropping {
                 opacity: 1;
                 background-color: var(--background-200);
-                color: var(--background-600);
+                color: var(--background-700);
             }
         }
     }

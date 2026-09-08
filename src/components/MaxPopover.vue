@@ -249,6 +249,7 @@
     min-width: 300px;
     min-height: 60px;
     background-color: var(--background-0);
+    color: var(--background-700);
     z-index: 2;
     border: 1px solid var(--surface-border);
     display: grid;
