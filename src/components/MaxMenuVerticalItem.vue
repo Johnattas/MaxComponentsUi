@@ -58,7 +58,7 @@
             width: 100%;
             height: 100%;
             grid-template-columns: 1fr;
-            color: var(--text-250);
+            color: var(--background-600);
             transition: color 0.3s ease;
             place-items: center;
 

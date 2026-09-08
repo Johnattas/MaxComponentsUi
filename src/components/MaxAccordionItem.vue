@@ -123,7 +123,7 @@
                 border: none;
                 cursor: pointer;
                 text-align: left;
-                color: inherit;
+                color: var(--background-600);
                 transition: background-color 0.2s ease;
 
                 &:hover:not(.max-accordion-item-header-disabled) {
@@ -146,6 +146,7 @@
 
         .max-accordion-item-content .max-accordion-item-content-inner {
             padding: 0 1rem 1rem;
+            color: var(--background-600);
         }
     }
 

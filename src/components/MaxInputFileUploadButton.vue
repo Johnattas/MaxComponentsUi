@@ -58,7 +58,7 @@
                     grid-template-columns: 1fr auto;
 
                     .input-file-button-label {
-                        color: var(--background-0);
+                        color: var(--background-600);
                         font-size: 0.9rem;
                     }
                 }

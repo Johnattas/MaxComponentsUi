@@ -230,6 +230,7 @@
 
         .max-drawer {
             background-color: var(--background-0);
+            color: var(--background-600);
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
@@ -281,7 +282,7 @@
                     border: none;
                     cursor: pointer;
                     display: flex;
-                    color: inherit;
+                    color: var(--background-600);
                 }
             }
 
