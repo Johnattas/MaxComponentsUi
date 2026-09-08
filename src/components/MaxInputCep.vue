@@ -74,10 +74,3 @@
         if (isValidCep.value) emit('complete', temp_value_numbers.value);
     });
 </script>
-
-<style lang="scss" scoped>
-    input {
-        grid-column: 2;
-        position: relative;
-    }
-</style>

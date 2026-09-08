@@ -21,8 +21,8 @@
             />
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen && filtered_values.length > 0" class="max-autocomplete-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen && filtered_values.length > 0">
+            <div class="max-autocomplete-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-autocomplete-overlay"

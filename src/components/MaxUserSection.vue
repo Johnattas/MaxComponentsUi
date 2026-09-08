@@ -35,8 +35,8 @@
             </div>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-user-section-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-user-section-backdrop" @click="hide">
                 <div
                     ref="menuEl"
                     id="overlay_tmenu"
