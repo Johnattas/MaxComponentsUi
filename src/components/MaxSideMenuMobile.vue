@@ -256,6 +256,7 @@
                 .mobile-profile-name {
                     font-size: 0.95rem;
                     font-weight: 600;
+                    color: var(--background-750);
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -263,7 +264,7 @@
 
                 .mobile-profile-subtext {
                     font-size: 0.75rem;
-                    color: var(--background-400, #94a3b8);
+                    color: var(--background-600);
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -273,7 +274,7 @@
             .mobile-profile-chevron {
                 background: none;
                 border: none;
-                color: var(--background-300, #cbd5e1);
+                color: var(--background-600);
                 display: grid;
                 place-items: center;
                 cursor: pointer;
@@ -304,7 +305,7 @@
                 font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 0.08em;
-                color: var(--background-500, #64748b);
+                color: var(--background-700);
                 padding: 0.25rem 0.75rem 0.5rem;
             }
         }
@@ -317,7 +318,7 @@
             min-height: 44px;
             padding: 0 0.75rem;
             border-radius: 10px;
-            color: var(--background-750, #334155);
+            color: var(--background-650);
             cursor: pointer;
             transition: background-color 0.16s ease, color 0.16s ease;
 
@@ -392,7 +393,7 @@
             .mobile-app-version {
                 text-align: center;
                 font-size: 0.7rem;
-                color: var(--background-400, #94a3b8);
+                color: var(--background-600);
             }
         }
     }

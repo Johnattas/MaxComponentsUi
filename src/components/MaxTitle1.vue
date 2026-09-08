@@ -50,6 +50,7 @@
             font-weight: 500;
             font-size: 1.2rem;
             padding: 0 !important;
+            color: var(--background-750);
         }
 
         .t2-main-text {

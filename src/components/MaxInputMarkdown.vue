@@ -496,7 +496,7 @@
             font-family: inherit;
             font-size: 0.95rem;
             line-height: 1.6;
-            color: var(--background-900, #1f2937);
+            color: var(--background-650);
             box-sizing: border-box;
             position: relative;
 
@@ -511,7 +511,7 @@
                 > p:first-child:empty::before,
                 &:has(> p:only-child > br:only-child)::before {
                     content: attr(data-placeholder);
-                    color: var(--background-400, #9ca3af);
+                    color: var(--background-600);
                     pointer-events: none;
                     position: absolute;
                     float: left;
@@ -521,7 +521,7 @@
 
             // Headings
             h1, h2, h3, h4, h5, h6 {
-                color: var(--background-950, #111827);
+                color: var(--background-750);
                 font-weight: 700;
                 line-height: 1.3;
                 margin: 1.25rem 0 0.5rem;
@@ -720,7 +720,7 @@
                 th {
                     background: var(--background-100, #f3f4f6);
                     font-weight: 600;
-                    color: var(--background-800, #1f2937);
+                    color: var(--background-700);
                 }
 
                 tr:nth-child(even) td {

@@ -414,7 +414,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 4px;
-    color: var(--background-400);
+    color: var(--background-600);
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1;
@@ -437,7 +437,7 @@
     caret-color: var(--max-primary-500);
 
     &::placeholder {
-        color: var(--background-400);
+        color: var(--background-600);
         opacity: 0.5;
     }
 
@@ -457,7 +457,7 @@
 
     &:disabled {
         background-color: var(--background-100);
-        color: var(--background-400);
+        color: var(--background-600);
         cursor: not-allowed;
         border-color: var(--background-200);
     }

@@ -278,7 +278,7 @@
         outline: none;
         background: transparent;
         font-size: 0.9rem;
-        color: var(--text-c, #334155);
+        color: var(--background-650);
         padding: 0 10px;
     }
 }
@@ -332,7 +332,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        color: var(--background-600)
+        color: var(--background-650);
     }
 
     .autocomplete-item-select-sub-label {
@@ -340,7 +340,7 @@
         place-items: center;
         font-size: 0.9em;
         min-width: 15px;
-        color: var(--background-500);
+        color: var(--background-600);
     }
 }
 </style>

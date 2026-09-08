@@ -1030,10 +1030,10 @@
     // nunca terem sido definidos, com um literal de fallback no próprio SCSS —
     // o que travava a cor no tema claro e ignorava a paleta da marca.
     --surface-border: var(--background-200);
-    --text-b: var(--background-800);
+    --text-b: var(--background-750);
     --text-c: var(--background-750);
     --text-d: var(--background-700);
-    --text-color: var(--background-800);
+    --text-color: var(--background-650);
     --primary-a: var(--primary-600);
     --primary-c: var(--primary-500);
     --primary-mouse: var(--primary-600);

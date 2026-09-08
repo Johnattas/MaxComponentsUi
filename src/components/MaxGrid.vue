@@ -47,7 +47,7 @@
         background-color: var(--background-0);
         padding: 0 10px;
         font-size: 0.8rem;
-        color: var(--background-600);
+        color: var(--background-700);
 
         &.label-center {
             transform: translateX(-50%) !important;

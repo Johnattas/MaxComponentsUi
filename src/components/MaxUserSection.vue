@@ -357,14 +357,14 @@
         height: 100%;
         padding: 8px;
         font-size: 0.9rem;
-        color: var(--text-c);
+        color: var(--background-650);
         background-color: var(--background-0);
         border-radius: 0.5rem;
         grid-template-columns: auto 1fr;
 
         &:hover {
             background-color: var(--background-100, #f1f5f9);
-            color: var(--text-c);
+            color: var(--background-750);
             cursor: pointer;
         }
     }

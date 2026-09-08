@@ -368,13 +368,13 @@
             border-radius: 6px;
             background: transparent;
             cursor: pointer;
-            color: var(--background-650, #4b5563);
+            color: var(--background-650);
             transition: all 0.15s ease;
             box-sizing: border-box;
 
             &:hover:not(:disabled) {
                 background: var(--background-150, #e5e7eb);
-                color: var(--background-900, #111827);
+                color: var(--background-750);
             }
 
             &.active {
@@ -422,7 +422,7 @@
             font-size: 13px;
             outline: none;
             background: var(--background-0, #fff);
-            color: var(--background-900, #111827);
+            color: var(--background-650);
             transition: border-color 0.15s;
             box-sizing: border-box;
 

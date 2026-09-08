@@ -2,7 +2,7 @@
     <input ref="inputRef" :class="inputClass" :value="modelValue" :disabled="disabled" :aria-invalid="invalid || undefined" @input="onInput" @blur="onBlur" @focus="onFocus" />
 </template>
 
-<script setup lang="ts">;
+<script setup lang="ts">
     import { computed, ref } from 'vue';
 
     defineOptions({ inheritAttrs: true });
@@ -67,7 +67,7 @@
         border: 1px solid var(--background-400);
         border-radius: 6px;
         background: var(--background-100);
-        color: var(--text-color);
+        color: var(--background-650);
         font-family: inherit;
         font-size: 1rem;
         transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;

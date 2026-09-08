@@ -79,7 +79,7 @@
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    color: var(--background-750);
+    color: var(--background-650);
     cursor: pointer;
     padding: 10px 20px;
     position: relative;
@@ -91,7 +91,7 @@
         height: 100%;
         bottom: 0;
         position: absolute;
-        color: var(--background-800);
+        color: var(--background-750);
         background-color: rgb(0 0 0 / 10%);
         opacity: 0;
         transition: opacity 0.2s;
@@ -99,10 +99,10 @@
 
     &:hover {
         background-color: var(--background-100);
-        color: var(--background-800);
+        color: var(--background-750);
 
         .max-icon {
-            color: var(--background-800) !important;
+            color: var(--background-750) !important;
         }
 
         &::before {
@@ -120,13 +120,13 @@
             height: 2px;
             bottom: 0;
             position: absolute;
-            color: var(--background-800);
-            background-color: var(--background-800);
+            color: var(--background-750);
+            background-color: var(--background-750);
         }
 
 
         .max-icon {
-            color: var(--background-800) !important;
+            color: var(--background-750) !important;
         }
     }
 
@@ -136,7 +136,7 @@
 
         &:hover {
             background-color: transparent;
-            color: var(--background-750);
+            color: var(--background-600);
         }
     }
 }

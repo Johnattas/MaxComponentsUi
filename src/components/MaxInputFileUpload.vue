@@ -309,7 +309,7 @@
                 &[disabled='true'] {
                     .label-file-upload {
                         font-weight: 400;
-                        color: var(--background-400);
+                        color: var(--background-600);
                         cursor: not-allowed;
                     }
                 }
@@ -319,7 +319,7 @@
                     display: grid;
                     place-items: center start !important;
                     height: auto;
-                    color: var(--background-600);
+                    color: var(--background-650);
                     cursor: pointer;
 
                     &:hover {
@@ -338,7 +338,7 @@
                 width: 100%;
                 font-size: 0.9rem;
                 font-weight: 300 !important;
-                color: var(--text-c);
+                color: var(--background-650);
                 cursor: pointer;
                 border: none !important;
                 position: absolute;

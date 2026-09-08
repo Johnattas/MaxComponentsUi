@@ -58,7 +58,7 @@
                     grid-template-columns: 1fr auto;
 
                     .input-file-button-label {
-                        color: var(--background-600);
+                        color: var(--background-650);
                         font-size: 0.9rem;
                     }
                 }
@@ -84,7 +84,7 @@
                     display: grid;
                     place-items: center !important;
                     height: auto;
-                    color: var(--background-600);
+                    color: var(--background-650);
                     gap: 10px;
                     text-align: center;
                     font-size: 1rem;

@@ -133,18 +133,18 @@
 
                 i {
                     font-size: 3rem;
-                    color: var(--text-c);
+                    color: var(--background-650);
                 }
 
                 .t1 {
                     font-weight: 400;
-                    color: var(--text-c);
+                    color: var(--background-650);
                     font-size: 0.9rem;
                 }
 
                 .t2 {
                     font-weight: 300;
-                    color: var(--text-d);
+                    color: var(--background-600);
                     font-size: 0.85rem;
                 }
             }

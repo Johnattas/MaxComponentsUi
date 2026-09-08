@@ -515,7 +515,7 @@
 
     input {
         &::placeholder {
-            color: var(--background-625);
+            color: var(--background-600);
         }
     }
 
@@ -619,7 +619,7 @@
 
     &[disabled] {
         background: var(--background-75) !important;
-        color: var(--background-400) !important;
+        color: var(--background-600) !important;
     }
 }
 
@@ -627,14 +627,14 @@
     background-color: unset !important;
 
     input, span, .p-floatlabel .p-select-label, .p-inputtext {
-        color: var(--background-575) !important;
+        color: var(--background-600) !important;
     }
 }
 
 .p-inputtext[disabled] {
     font-size: 12px;
     font-weight: 500;
-    color: var(--background-575) !important;
+    color: var(--background-600) !important;
 }
 
 

@@ -238,7 +238,7 @@
             height: var(--bottom-menu-height, 58px);
             background-color: var(--background-25, #fff);
             border-top: 1px solid var(--background-100, #e2e8f0);
-            color: var(--background-800, #1e293b);
+            color: var(--background-650);
             place-items: center;
         }
 
@@ -252,7 +252,7 @@
             height: 100%;
             min-height: 44px;
             cursor: pointer;
-            color: var(--background-600, #64748b);
+            color: var(--background-650);
             transition: color 0.18s ease;
 
             .max-icon-div {
@@ -270,7 +270,7 @@
             }
 
             &:not(.active):hover {
-                color: var(--background-800, #1e293b);
+                color: var(--background-750);
             }
         }
 

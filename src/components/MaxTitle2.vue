@@ -54,7 +54,7 @@
         .text-h2 {
             font-weight: 300;
             font-size: 0.85rem;
-            color: var(--background-675);
+            color: var(--background-700);
         }
     }
 </style>

@@ -115,7 +115,7 @@
 
         .div_mensagem {
             padding-left: 8px;
-            color: var(--text-c);
+            color: var(--background-650);
             width: calc(100% - 8px);
             text-align: right;
         }

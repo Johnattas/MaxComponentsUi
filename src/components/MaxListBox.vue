@@ -660,7 +660,7 @@
     border: 1px solid var(--background-300);
     border-radius: 4px;
     background-color: var(--background-0);
-    color: var(--background-750);
+    color: var(--background-650);
     font-size: 0.9rem;
     outline: none;
 
@@ -725,7 +725,7 @@
     // totalHeight/offsetY/startIndex.
     min-height: v-bind('`${props.itemHeight}px`');
     cursor: pointer;
-    color: var(--background-750);
+    color: var(--background-650);
 
     &:hover {
         background-color: var(--background-300);

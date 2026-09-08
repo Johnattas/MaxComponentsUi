@@ -547,7 +547,7 @@
 
 .p-select-empty-message {
     padding: 8px 12px;
-    color: var(--background-500, #64748b);
+    color: var(--background-600);
     font-size: 0.85rem;
 }
 
@@ -555,7 +555,7 @@
     font-weight: 600;
     padding: 6px 10px;
     font-size: 0.8rem;
-    color: var(--background-500, #64748b);
+    color: var(--background-700);
     background: var(--background-50, #f8fafc);
 }
 
@@ -567,7 +567,7 @@
     box-sizing: border-box;
     cursor: pointer;
     font-size: 0.85rem;
-    color: var(--text-c);
+    color: var(--background-650);
 
     &:hover {
         background-color: var(--background-100, #f1f5f9) !important;

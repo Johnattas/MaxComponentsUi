@@ -665,10 +665,10 @@
         }
 
         .max-auth-register {
-            color: var(--background-500);
+            color: var(--background-600);
 
             .text-secondary {
-                color: var(--background-500);
+                color: var(--background-600);
             }
         }
 
@@ -676,7 +676,7 @@
             display: flex;
             align-items: center;
             text-align: center;
-            color: var(--background-400);
+            color: var(--background-600);
             margin: 1.5rem 0 1rem;
 
             .line {
@@ -689,7 +689,7 @@
                 font-size: 0.7rem;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
-                color: var(--background-400);
+                color: var(--background-600);
                 padding: 0 0.5rem;
             }
         }

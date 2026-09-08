@@ -379,7 +379,7 @@
         .p-drawer-title {
             font-weight: 600;
             font-size: 1.1rem;
-            color: var(--text-c, #334155);
+            color: var(--background-750);
         }
 
         .p-drawer-close-button {
@@ -391,11 +391,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--background-500, #94a3b8);
+            color: var(--background-650);
 
             &:hover {
                 background: var(--background-100, #f1f5f9);
-                color: var(--text-c, #334155);
+                color: var(--background-750);
             }
         }
     }
@@ -419,6 +419,11 @@
             border-radius: 8px;
             outline: none;
             font-size: 0.9rem;
+            color: var(--background-650);
+
+            &::placeholder {
+                color: var(--background-600);
+            }
         }
     }
 
@@ -427,7 +432,7 @@
         align-items: center;
         justify-content: center;
         height: calc(90dvh - 140px);
-        color: var(--background-500);
+        color: var(--background-600);
         font-size: 0.9rem;
         gap: 0.5rem;
     }

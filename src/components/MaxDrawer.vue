@@ -230,7 +230,7 @@
 
         .max-drawer {
             background-color: var(--background-0);
-            color: var(--background-600);
+            color: var(--background-650);
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
@@ -275,6 +275,7 @@
 
                 .max-drawer-title {
                     font-weight: 600;
+                    color: var(--background-750);
                 }
 
                 .max-drawer-close {
@@ -282,7 +283,7 @@
                     border: none;
                     cursor: pointer;
                     display: flex;
-                    color: var(--background-600);
+                    color: var(--background-650);
                 }
             }
 

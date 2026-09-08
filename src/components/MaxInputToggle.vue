@@ -129,7 +129,7 @@
                 z-index: 1;
                 font-family: Jost, sans-serif !important;
                 font-size: 0.85rem;
-                color: var(--background-600);
+                color: var(--background-700);
 
                 &::after {
                     content: '';
