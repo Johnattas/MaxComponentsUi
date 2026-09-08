@@ -233,10 +233,3 @@
 
     defineExpose({ unmaskedValue });
 </script>
-
-<style lang="scss" scoped>
-    input {
-        grid-column: 2;
-        position: relative;
-    }
-</style>
