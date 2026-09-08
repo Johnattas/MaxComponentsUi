@@ -6,8 +6,8 @@
             </slot>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-popover-menu-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-popover-menu-backdrop" @click="hide">
                 <div
                     ref="menuEl"
                     id="overlay_menu"

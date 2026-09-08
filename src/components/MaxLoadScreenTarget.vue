@@ -1,6 +1,6 @@
 <template>
     <div v-if="isMounted && size(props.target.items ?? {}) > 0" class="max-load-screen-target">
-        <Teleport :to="props.target.target" :disabled="!isMounted">
+        <Teleport :to="resolvedTarget" :disabled="!isMounted">
             <div v-if="size(props.target.items ?? {}) > 0" class="load-screen">
                 <slot>
                     <div class="load-screen-messages">
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, onMounted, defineAsyncComponent } from 'vue';
+    import { ref, computed, onMounted, defineAsyncComponent } from 'vue';
     import { size } from '@maxvue/max-use';
     import MaxIcon from './MaxIcon.vue';
     import MaxDoneIcon from './MaxDoneIcon.vue';
@@ -48,6 +48,24 @@
     const isMounted = ref(false);
 
     onMounted(() => isMounted.value = true);
+
+    /**
+     * Resolve o seletor de destino com fallback seguro para 'body'.
+     * Evita que um seletor inexistente no DOM cause container nulo no Teleport,
+     * o que geraria erro fatal de patchBlockChildren (__vnode null).
+     */
+    const resolvedTarget = computed(() => {
+        const raw = props.target?.target;
+        if (!raw || raw === 'body') return 'body';
+        if (typeof document !== 'undefined') try {
+            const el = document.querySelector(raw);
+            if (el) return raw;
+        } catch {
+            return 'body';
+        }
+
+        return 'body';
+    });
 </script>
 
 <style lang="scss">

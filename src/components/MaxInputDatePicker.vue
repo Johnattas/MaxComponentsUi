@@ -24,8 +24,8 @@
             />
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-datepicker-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-datepicker-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-datepicker-panel max-datepicker-panel"

@@ -19,8 +19,8 @@
         </div>
     </InputBase>
 
-    <Teleport to="body">
-        <div v-if="visible" class="max-icon-picker-drawer-backdrop" @click="visible = false">
+    <Teleport to="body" v-if="visible">
+        <div class="max-icon-picker-drawer-backdrop" @click="visible = false">
             <div class="max-icon-picker-drawer p-drawer-bottom" @click.stop>
                 <div class="p-drawer-header">
                     <span class="p-drawer-title">Escolha um ícone</span>

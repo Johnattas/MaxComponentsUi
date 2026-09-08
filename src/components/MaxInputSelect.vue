@@ -39,8 +39,8 @@
             </div>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-select-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-select-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-select-overlay"
@@ -140,11 +140,11 @@
     </InputBase>
 </template>
 
-/**
- * Componente de seleção (dropdown).
- * Suporta opções simples, agrupadas e carregamento dinâmico via callback.
- */
 <script setup lang="ts">
+    /**
+     * Componente de seleção (dropdown).
+     * Suporta opções simples, agrupadas e carregamento dinâmico via callback.
+     */
     import { ref, computed, watch, useAttrs, onBeforeUnmount, nextTick, Ref } from 'vue';
     import InputBase from './InputBase.vue';
     import MaxIcon from './MaxIcon.vue';
