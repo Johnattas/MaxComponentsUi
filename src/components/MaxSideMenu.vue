@@ -1,8 +1,8 @@
 <template>
     <div class="max-side-menu side-menu" v-bind="attrs">
         <div class="grid-logo-and-menu">
-            <div v-if="system.type_device === 'desktop'" v-tooltip="system.version" class="space-logo" @click="clearSearch">
-                <MaxLogo v-if="logoSrc" :src="logoSrc" fill flex no-padding />
+            <div v-if="system.type_device === 'desktop'" v-tooltip="system.version" class="space-logo" @click="onLogoClick">
+                <MaxLogo v-if="logoSrc" :src="logoSrc" :to="props.routeLogo" fill flex no-padding />
             </div>
             <div class="menu">
                 <div v-if="items" class="grupo items">
@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
     import { computed, useAttrs } from 'vue';
+    import { useRouter, useRoute } from 'vue-router';
     import { getRoute } from '@maxvue/max-use';
     import MaxLogo from './MaxLogo.vue';
     import MaxMenuVerticalItem from './MaxMenuVerticalItem.vue';
@@ -26,7 +27,7 @@
     import { useListMenusStore } from '../stores/useListMenus.Store';
     import type { SideMenuItem } from '../types/app';
 
-    const props = defineProps<{
+    const props = withDefaults(defineProps<{
         /**
          * Logo exibida no topo do menu.
          *
@@ -35,9 +36,19 @@
          * — ou quando a rota não resolve — nenhuma logo é renderizada.
          */
         logo?: string;
+        /** Rota de destino ao clicar na logo. Padrão: '/'. */
+        routeLogo?: string;
+    }>(), {
+        routeLogo: '/'
+    });
+
+    const emit = defineEmits<{
+        logoClick: [];
     }>();
 
     const attrs = useAttrs();
+    const router = useRouter();
+    const route = useRoute();
     const menus = useListMenusStore();
     const system = useSystemStore();
 
@@ -79,6 +90,19 @@
 
     const clearSearch = (): void => {
         useSearchBarStore().input_value = '';
+    };
+
+    const onLogoClick = (): void => {
+        clearSearch();
+        emit('logoClick');
+
+        const target = props.routeLogo;
+        if (!target) return;
+
+        if (target.startsWith('/')) {
+            if (route?.path !== target) router.push(target);
+        } else if (route?.name !== target) router.push({ name: target });
+
     };
 </script>
 

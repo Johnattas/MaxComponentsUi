@@ -300,6 +300,22 @@ describe('MaxApp', () => {
             expect(wrapper.findComponent(MaxPageLayout).props('bottomShowLabels')).toBe(true);
         });
 
+        it('repassa routeLogo ao layout com valor padrão "/"', () => {
+            loadUser();
+
+            const wrapper = mountApp();
+
+            expect(wrapper.findComponent(MaxPageLayout).props('routeLogo')).toBe('/');
+        });
+
+        it('repassa routeLogo customizada ao layout', () => {
+            loadUser();
+
+            const wrapper = mountApp({ props: { routeLogo: 'dashboard' } });
+
+            expect(wrapper.findComponent(MaxPageLayout).props('routeLogo')).toBe('dashboard');
+        });
+
         it('propaga o evento fabClick do layout', async () => {
             loadUser();
 
@@ -308,6 +324,16 @@ describe('MaxApp', () => {
             await wrapper.vm.$nextTick();
 
             expect(wrapper.emitted('fabClick')).toHaveLength(1);
+        });
+
+        it('propaga o evento logoClick do layout', async () => {
+            loadUser();
+
+            const wrapper = mountApp();
+            wrapper.findComponent(MaxPageLayout).vm.$emit('logoClick');
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.emitted('logoClick')).toHaveLength(1);
         });
     });
 

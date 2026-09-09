@@ -5,13 +5,14 @@ import { setActivePinia, createPinia } from 'pinia';
 import { reactive, ref } from 'vue';
 
 const route = reactive<Record<string, any>>({ name: 'projects', query: {}, params: {} });
+const push = vi.fn();
 
 // Preserva o módulo real: o MaxLogo renderiza um RouterLink, que sumiria
 // se o mock substituísse o vue-router inteiro.
 vi.mock('vue-router', async (importOriginal) => ({
     ...(await importOriginal<Record<string, any>>()),
     useRoute: () => route,
-    useRouter: () => ({ push: vi.fn() })
+    useRouter: () => ({ push })
 }));
 
 // O useRefCachedApi dispara requisição real; aqui só interessa a ref devolvida.
@@ -40,10 +41,10 @@ const mountWithPinia = (component: any, options: Record<string, any> = {}) => mo
     global: {
         ...(options.global ?? {}),
         plugins: [pinia],
-        // O stub declara `src` para que os testes da prop `logo` possam
-        // inspecionar o valor que chega ao MaxLogo.
+        // O stub declara `src` e `to` para que os testes da prop `logo` e `routeLogo`
+        // possam inspecionar os valores que chegam ao MaxLogo.
         stubs: {
-            MaxLogo: { name: 'MaxLogo', props: ['src'], template: '<div class="max-logo-stub" />' },
+            MaxLogo: { name: 'MaxLogo', props: ['src', 'to'], template: '<div class="max-logo-stub" />' },
             MaxIcon: { template: '<span class="max-icon-stub" />' },
             ...(options.global?.stubs ?? {})
         }
@@ -58,7 +59,9 @@ describe('MaxSideMenu', () => {
         pinia = createPinia();
         setActivePinia(pinia);
         route.name = 'projects';
+        route.path = '/projects';
         menusRef.value = null;
+        push.mockReset();
     });
 
     it('não renderiza grupos sem menus carregados', () => {
@@ -167,7 +170,7 @@ describe('MaxSideMenu', () => {
         });
     });
 
-    it('limpa a busca ao clicar na logo', async () => {
+    it('limpa a busca, emite logoClick e navega para "/" ao clicar na logo por padrão', async () => {
         menusRef.value = { side: [] };
         const search = useSearchBarStore();
         search.input_value = 'algo';
@@ -176,6 +179,24 @@ describe('MaxSideMenu', () => {
         await wrapper.find('.space-logo').trigger('click');
 
         expect(search.input_value).toBe('');
+        expect(wrapper.emitted('logoClick')).toHaveLength(1);
+        expect(push).toHaveBeenCalledWith('/');
+    });
+
+    it('navega para rota customizada e emite logoClick ao clicar na logo', async () => {
+        menusRef.value = { side: [] };
+        const wrapper = mountWithPinia(MaxSideMenu, { props: { routeLogo: 'dashboard' } });
+        await wrapper.find('.space-logo').trigger('click');
+
+        expect(wrapper.emitted('logoClick')).toHaveLength(1);
+        expect(push).toHaveBeenCalledWith({ name: 'dashboard' });
+    });
+
+    it('repassa routeLogo para o MaxLogo', () => {
+        menusRef.value = { side: [] };
+        const wrapper = mountWithPinia(MaxSideMenu, { props: { logo: '/logo.svg', routeLogo: '/inicio' } });
+
+        expect(wrapper.findComponent({ name: 'MaxLogo' }).props('to')).toBe('/inicio');
     });
 });
 

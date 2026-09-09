@@ -26,6 +26,7 @@
                     :side-menu-items="props.sideMenuItems"
                     :avatar-path="props.avatarPath"
                     :logo="props.logo"
+                    :route-logo="props.routeLogo"
                     @profile="emit('profile')"
                     @settings="emit('settings')"
                     @support="emit('support')"
@@ -33,6 +34,7 @@
                     @logout="emit('logout')"
                     @end-impersonate="emit('endImpersonate')"
                     @fab-click="emit('fabClick')"
+                    @logo-click="emit('logoClick')"
                 >
                     <RouterView />
                     <template v-for="(_, name) in forwardedSlots" #[name]="slotProps" :key="name">
@@ -107,11 +109,14 @@
          * Sem ela, o espaço fica vazio.
          */
         logo?: string;
+        /** Rota de destino ao clicar na logo. Padrão: '/'. */
+        routeLogo?: string;
     }>(), {
         allowUserName: true,
         allowEmail: true,
         allowPhone: true,
-        blankPages: () => []
+        blankPages: () => [],
+        routeLogo: '/'
     });
 
     /**
@@ -127,6 +132,7 @@
         logout: [];
         endImpersonate: [];
         fabClick: [];
+        logoClick: [];
     }>();
 
     // A configuração precisa ser aplicada antes das stores resolverem suas rotas.
