@@ -189,7 +189,7 @@
     position: relative;
     place-items: center;
 
-    input {
+    input, textarea {
         color: var(--background-700);
     }
 
@@ -513,7 +513,7 @@
         }
     }
 
-    input {
+    input, textarea {
         &::placeholder {
             color: var(--background-650);
         }
@@ -539,7 +539,7 @@
             }
         }
 
-        input, span, select, .p-select-label, .p-inputtext, .value-div, .value-text {
+        input, textarea, span, select, .p-select-label, .p-inputtext, .value-div, .value-text {
             color: var(--background-700) !important;
         }
 
@@ -626,7 +626,7 @@
 .p-disabled, [disabled='true'], [disabled] {
     background-color: unset !important;
 
-    input, span, .p-floatlabel .p-select-label, .p-inputtext {
+    input, textarea, span, .p-floatlabel .p-select-label, .p-inputtext {
         color: var(--background-650) !important;
     }
 }
