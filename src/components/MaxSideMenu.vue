@@ -146,6 +146,7 @@
             .space-logo {
                 position: relative;
                 top: 10px;
+                left: 6px;
                 width: 45px;
                 height: 45px;
                 margin: 5px auto 40px;

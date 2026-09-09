@@ -235,6 +235,15 @@ describe('MaxSideMenu', () => {
 
         resetMaxAppConfig();
     });
+
+    it('renderiza o container .space-logo no topo do menu lateral para exibição alinhada da logo', () => {
+        menusRef.value = { side: [] };
+        const wrapper = mountWithPinia(MaxSideMenu, { props: { logo: '/logo.svg' } });
+
+        const spaceLogo = wrapper.find('.space-logo');
+        expect(spaceLogo.exists()).toBe(true);
+        expect(wrapper.findComponent({ name: 'MaxLogo' }).exists()).toBe(true);
+    });
 });
 
 describe('MaxMenuVerticalItem', () => {
