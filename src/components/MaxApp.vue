@@ -25,8 +25,8 @@
                     :side-menu-groups="props.sideMenuGroups"
                     :side-menu-items="props.sideMenuItems"
                     :avatar-path="props.avatarPath"
-                    :logo="props.logo"
-                    :route-logo="props.routeLogo"
+                    :logo="effectiveLogo"
+                    :route-logo="effectiveRouteLogo"
                     @profile="emit('profile')"
                     @settings="emit('settings')"
                     @support="emit('support')"
@@ -64,7 +64,7 @@
     import { useSystemStore } from '../stores/useSystem.Store';
     import { useUserStore } from '../stores/useUser.Store';
     import { useLoginStore } from '../stores/useLogin.Store';
-    import { configureMaxApp } from '../helpers/maxAppConfig';
+    import { configureMaxApp, getMaxAppConfig } from '../helpers/maxAppConfig';
     import type { BottomTab } from './MaxBottomMenu.vue';
     import type { MenuGroup } from './MaxSideMenuMobile.vue';
 
@@ -106,7 +106,7 @@
         /**
          * Logo do menu lateral. Aceita uma URL (`/get_file?file=logo.svg`,
          * `https://…`) ou o nome de uma rota, resolvido pelo `getRoute`.
-         * Sem ela, o espaço fica vazio.
+         * Sem ela, consulta `getMaxAppConfig().logo`.
          */
         logo?: string;
         /** Rota de destino ao clicar na logo. Padrão: '/'. */
@@ -115,8 +115,7 @@
         allowUserName: true,
         allowEmail: true,
         allowPhone: true,
-        blankPages: () => [],
-        routeLogo: '/'
+        blankPages: () => []
     });
 
     /**
@@ -139,8 +138,16 @@
     configureMaxApp({
         ...(props.routeLogin ? { routeLogin: props.routeLogin } : {}),
         ...(props.routeProviders ? { routeProviders: props.routeProviders } : {}),
-        ...(props.routeUser ? { routeUser: props.routeUser } : {})
+        ...(props.routeUser ? { routeUser: props.routeUser } : {}),
+        ...(props.logo ? { logo: props.logo } : {}),
+        ...(props.routeLogo ? { routeLogo: props.routeLogo } : {})
     });
+
+    /** Logo efetiva exibida no shell (prop ou fallback da configuração global). */
+    const effectiveLogo = computed<string | undefined>(() => props.logo ?? getMaxAppConfig().logo);
+
+    /** Rota efetiva de destino ao clicar na logo. */
+    const effectiveRouteLogo = computed<string>(() => props.routeLogo ?? getMaxAppConfig().routeLogo ?? '/');
 
     const route = useRoute();
     const system = useSystemStore();

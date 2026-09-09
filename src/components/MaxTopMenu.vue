@@ -173,7 +173,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 20;
+        z-index: 10;
         width: 100%;
         height: 64px;
         grid-template-columns: auto 1fr;
@@ -183,6 +183,7 @@
         place-items: center end;
 
         &[screen='mobile'] {
+            z-index: 20;
             place-items: center;
             grid-template-columns: 1fr !important;
             height: var(--top-menu-height, 60px);

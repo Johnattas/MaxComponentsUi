@@ -45,7 +45,7 @@
             </template>
         </MaxTopMenu>
 
-        <MaxSideMenu v-bind="attrs" :logo="props.logo" :route-logo="props.routeLogo" @logo-click="emit('logoClick')" />
+        <MaxSideMenu v-bind="attrs" :screen="props.screen" :logo="props.logo" :route-logo="props.routeLogo" @logo-click="emit('logoClick')" />
 
         <MaxPageContent v-bind="attrs">
             <slot></slot>

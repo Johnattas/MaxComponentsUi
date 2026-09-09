@@ -25,7 +25,7 @@ import MaxPageLayout from '../../src/components/MaxPageLayout.vue';
 import { useUserStore } from '../../src/stores/useUser.Store';
 import { useLoginStore } from '../../src/stores/useLogin.Store';
 import { useSystemStore } from '../../src/stores/useSystem.Store';
-import { getMaxAppConfig, resetMaxAppConfig } from '../../src/helpers/maxAppConfig';
+import { configureMaxApp, getMaxAppConfig, resetMaxAppConfig } from '../../src/helpers/maxAppConfig';
 
 let pinia: Pinia;
 
@@ -314,6 +314,32 @@ describe('MaxApp', () => {
             const wrapper = mountApp({ props: { routeLogo: 'dashboard' } });
 
             expect(wrapper.findComponent(MaxPageLayout).props('routeLogo')).toBe('dashboard');
+        });
+
+        it('repassa a logo de configureMaxApp ao layout quando a prop logo for omitida', () => {
+            loadUser();
+            configureMaxApp({ logo: '/global-logo.svg' });
+
+            const wrapper = mountApp();
+
+            expect(wrapper.findComponent(MaxPageLayout).props('logo')).toBe('/global-logo.svg');
+        });
+
+        it('repassa routeLogo de configureMaxApp ao layout quando a prop routeLogo for omitida', () => {
+            loadUser();
+            configureMaxApp({ routeLogo: 'dashboard' });
+
+            const wrapper = mountApp();
+
+            expect(wrapper.findComponent(MaxPageLayout).props('routeLogo')).toBe('dashboard');
+        });
+
+        it('repassa a prop screen ao layout', () => {
+            loadUser();
+
+            const wrapper = mountApp({ props: { screen: 'desktop' } });
+
+            expect(wrapper.findComponent(MaxPageLayout).props('screen')).toBe('desktop');
         });
 
         it('propaga o evento fabClick do layout', async () => {

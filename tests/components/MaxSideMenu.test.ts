@@ -30,6 +30,7 @@ import MaxMenuVerticalItem from '../../src/components/MaxMenuVerticalItem.vue';
 import MaxIconButton from '../../src/components/MaxIconButton.vue';
 import { useSearchBarStore } from '../../src/stores/useSearchBar.Store';
 import { useSystemStore } from '../../src/stores/useSystem.Store';
+import { configureMaxApp, resetMaxAppConfig } from '../../src/helpers/maxAppConfig';
 
 let pinia: Pinia;
 
@@ -198,6 +199,41 @@ describe('MaxSideMenu', () => {
         const wrapper = mountWithPinia(MaxSideMenu, { props: { logo: '/logo.svg', routeLogo: '/inicio' } });
 
         expect(wrapper.findComponent({ name: 'MaxLogo' }).props('to')).toBe('/inicio');
+    });
+
+    it('renderiza a logo quando props.screen="desktop" mesmo que system.type_device seja mobile', () => {
+        menusRef.value = { side: [] };
+        const system = useSystemStore();
+        // Simula tela pequena no breakpoint
+        vi.spyOn(system, 'type_device', 'get').mockReturnValue('mobile');
+
+        const wrapper = mountWithPinia(MaxSideMenu, { props: { logo: '/logo.svg', screen: 'desktop' } });
+
+        expect(wrapper.find('.space-logo').exists()).toBe(true);
+        expect(wrapper.findComponent({ name: 'MaxLogo' }).exists()).toBe(true);
+    });
+
+    it('utiliza a logo de getMaxAppConfig() quando a prop logo não for informada', () => {
+        menusRef.value = { side: [] };
+        configureMaxApp({ logo: '/config-logo.svg' });
+
+        const wrapper = mountWithPinia(MaxSideMenu);
+
+        expect(wrapper.find('.space-logo').exists()).toBe(true);
+        expect(wrapper.findComponent({ name: 'MaxLogo' }).props('src')).toBe('/config-logo.svg');
+
+        resetMaxAppConfig();
+    });
+
+    it('utiliza routeLogo de getMaxAppConfig() quando a prop routeLogo não for informada', () => {
+        menusRef.value = { side: [] };
+        configureMaxApp({ logo: '/logo.svg', routeLogo: '/dashboard' });
+
+        const wrapper = mountWithPinia(MaxSideMenu);
+
+        expect(wrapper.findComponent({ name: 'MaxLogo' }).props('to')).toBe('/dashboard');
+
+        resetMaxAppConfig();
     });
 });
 

@@ -1,8 +1,8 @@
 <template>
     <div class="max-side-menu side-menu" v-bind="attrs">
         <div class="grid-logo-and-menu">
-            <div v-if="system.type_device === 'desktop'" v-tooltip="system.version" class="space-logo" @click="onLogoClick">
-                <MaxLogo v-if="logoSrc" :src="logoSrc" :to="props.routeLogo" fill flex no-padding />
+            <div v-if="!isMobile" v-tooltip="system.version" class="space-logo" @click="onLogoClick">
+                <MaxLogo v-if="logoSrc" :src="logoSrc" :to="effectiveRouteLogo" fill flex no-padding />
             </div>
             <div class="menu">
                 <div v-if="items" class="grupo items">
@@ -25,22 +25,23 @@
     import { useSystemStore } from '../stores/useSystem.Store';
     import { useSearchBarStore } from '../stores/useSearchBar.Store';
     import { useListMenusStore } from '../stores/useListMenus.Store';
+    import { getMaxAppConfig } from '../helpers/maxAppConfig';
     import type { SideMenuItem } from '../types/app';
 
-    const props = withDefaults(defineProps<{
+    const props = defineProps<{
         /**
          * Logo exibida no topo do menu.
          *
          * Aceita uma URL (`/get_file?file=logo.svg`, `https://…`, `data:…`) ou o
          * nome de uma rota, resolvido pelo `getRoute` do MaxUse. Quando omitida
-         * — ou quando a rota não resolve — nenhuma logo é renderizada.
+         * — ou quando a rota não resolve — consulta `getMaxAppConfig().logo`.
          */
         logo?: string;
         /** Rota de destino ao clicar na logo. Padrão: '/'. */
         routeLogo?: string;
-    }>(), {
-        routeLogo: '/'
-    });
+        /** Dispositivo atual ('desktop' | 'mobile'). Quando omitido, consulta useSystemStore(). */
+        screen?: string;
+    }>();
 
     const emit = defineEmits<{
         logoClick: [];
@@ -52,12 +53,24 @@
     const menus = useListMenusStore();
     const system = useSystemStore();
 
+    /** Determina se o menu lateral está em modo mobile. */
+    const isMobile = computed<boolean>(() => {
+        const target = props.screen ?? (attrs.screen as string | undefined);
+        if (target) return target === 'mobile';
+
+        return system.type_device === 'mobile';
+    });
+
+    /** Rota efetiva de destino ao clicar na logo. */
+    const effectiveRouteLogo = computed<string>(() => props.routeLogo ?? getMaxAppConfig().routeLogo ?? '/');
+
     /** Indica que o valor já é um caminho utilizável, e não um nome de rota. */
     const isUrl = (value: string): boolean => /^(https?:\/\/|\/|data:|blob:)/.test(value);
 
-    /** Resolve a prop `logo` para a URL final da imagem. */
+    /** Resolve a logo para a URL final da imagem, com fallback para a configuração global. */
     const logoSrc = computed<string | undefined>(() => {
-        const logo = props.logo?.trim();
+        const raw = props.logo ?? getMaxAppConfig().logo;
+        const logo = raw?.trim();
 
         if (!logo) return undefined;
         if (isUrl(logo)) return logo;
@@ -96,7 +109,7 @@
         clearSearch();
         emit('logoClick');
 
-        const target = props.routeLogo;
+        const target = effectiveRouteLogo.value;
         if (!target) return;
 
         if (target.startsWith('/')) {
@@ -114,7 +127,7 @@
         height: 100vh;
         height: 100dvh;
         box-sizing: border-box;
-        z-index: 3;
+        z-index: 25;
         background-color: var(--layout-shell-bg, #003048);
 
         &[screen='mobile'] {
