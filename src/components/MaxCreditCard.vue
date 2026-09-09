@@ -9,10 +9,11 @@
                             ref="numberTextEl"
                             x="105"
                             y="270"
-                            style="font-size: 42px;"
+                            font-size="42"
                             fill="#336699"
                             font-weight="700"
                             font-family="'JetBrains Mono', monospace"
+                            class="credit-card-number"
                             :textLength="numberTextLength"
                             :lengthAdjust="numberTextLength ? 'spacingAndGlyphs' : undefined"
                         >{{ t1 }} {{ t2 }} {{ t3 }} {{ t4 }}</text>
@@ -20,9 +21,10 @@
                             ref="nameTextEl"
                             x="35"
                             y="340"
-                            style="font-size: 32px;"
+                            font-size="32"
                             fill="#336699"
                             font-family="'JetBrains Mono', monospace"
+                            class="credit-card-name"
                             :textLength="nameTextLength"
                             :lengthAdjust="nameTextLength ? 'spacingAndGlyphs' : undefined"
                         >{{ props.name || 'NOME IMPRESSO NO CARTÃO' }}</text>
@@ -30,9 +32,10 @@
                             ref="dateTextEl"
                             x="35"
                             y="380"
-                            style="font-size: 28px;"
+                            font-size="28"
                             fill="#336699"
                             font-family="'JetBrains Mono', monospace"
+                            class="credit-card-date"
                             :textLength="dateTextLength"
                             :lengthAdjust="dateTextLength ? 'spacingAndGlyphs' : undefined"
                         >{{ date }}</text>
@@ -46,9 +49,10 @@
                             ref="cvvTextEl"
                             x="548"
                             y="218"
-                            style="font-size: 36px;"
+                            font-size="36"
                             fill="#336699"
                             font-family="'JetBrains Mono', monospace"
+                            class="credit-card-cvv"
                             :textLength="cvvTextLength"
                             :lengthAdjust="cvvTextLength ? 'spacingAndGlyphs' : undefined"
                         >{{ cvv }}</text>
@@ -213,7 +217,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .max-credit-card {
     /** Proporção do viewBox dos SVGs de frente/verso (700x430). */
     --max-credit-card-ratio: 700 / 430;
@@ -223,14 +227,6 @@
     position: relative;
     width: 100%;
     display: grid;
-
-    svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        font-family: 'JetBrains Mono', monospace;
-        font-optical-sizing: auto;
-    }
 
     .flip-card {
         position: relative;
@@ -261,6 +257,39 @@
                 inset: 0;
                 width: 100%;
                 backface-visibility: hidden;
+
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    font-family: 'JetBrains Mono', monospace;
+                    font-optical-sizing: auto;
+
+                    .credit-card-number {
+                        font-size: 42px;
+                        fill: #369;
+                        font-weight: 700;
+                        font-family: 'JetBrains Mono', monospace;
+                    }
+
+                    .credit-card-name {
+                        font-size: 32px;
+                        fill: #369;
+                        font-family: 'JetBrains Mono', monospace;
+                    }
+
+                    .credit-card-date {
+                        font-size: 28px;
+                        fill: #369;
+                        font-family: 'JetBrains Mono', monospace;
+                    }
+
+                    .credit-card-cvv {
+                        font-size: 36px;
+                        fill: #369;
+                        font-family: 'JetBrains Mono', monospace;
+                    }
+                }
             }
 
             .flip-card-back {

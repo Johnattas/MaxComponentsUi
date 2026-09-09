@@ -94,7 +94,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .item_menu {
         display: grid;
         width: 100%;
@@ -129,8 +129,8 @@
         &.active {
             position: relative;
 
-            .max-icon-div,
-            .max-icon {
+            :deep(.max-icon-div),
+            :deep(.max-icon) {
                 z-index: 1;
                 color: var(--blue-750) !important;
 

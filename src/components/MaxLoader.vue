@@ -13,7 +13,7 @@
     const attrs: any = useAttrs();
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-loader-main-div {
         height: 100%;
         width: 100%;

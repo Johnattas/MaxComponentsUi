@@ -49,16 +49,16 @@
     onUnmounted(() => clearTimeout(debounceTimer));
 </script>
 
-<style lang="scss">
-    .p-autocomplete-option {
+<style lang="scss" scoped>
+    :deep(.p-autocomplete-option) {
         padding: 0 !important;
     }
 
-    .p-autocomplete-list {
+    :deep(.p-autocomplete-list) {
         gap: 5px !important;
     }
 
-    .p-autocomplete-overlay {
+    :deep(.p-autocomplete-overlay) {
         z-index: 99999 !important;
     }
 

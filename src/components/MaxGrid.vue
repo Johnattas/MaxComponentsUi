@@ -20,7 +20,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .max-grid {
     display: flex;
     flex-wrap: wrap;
@@ -30,8 +30,9 @@
 
     /* Quando o grid recebe a flag no-message, força o colapso da linha de
        mensagem em todos os inputs internos (MaxInput*). */
-    &[no-message], &[no-messages] {
-        .max-input-main-div {
+    &[no-message],
+    &[no-messages] {
+        :deep(.max-input-main-div) {
             grid-template-rows: 1fr;
 
             .message-spacer {

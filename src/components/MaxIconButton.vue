@@ -55,7 +55,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .icon-div {
         display: grid;
         place-items: center;

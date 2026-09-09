@@ -379,7 +379,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-chips-wrapper {
         .max-chips-container {
             display: flex;

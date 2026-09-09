@@ -160,8 +160,10 @@
     );
 </script>
 
-<style lang="scss">
-    .max-inputnumber {
-        width: 100%;
+<style lang="scss" scoped>
+    .max-input-number {
+        .max-inputnumber {
+            width: 100%;
+        }
     }
 </style>

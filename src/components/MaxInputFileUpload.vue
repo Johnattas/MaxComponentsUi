@@ -48,7 +48,7 @@
                     </slot>
                 </div>
                 <div v-else-if="uploading || attrs.uploading">
-                    <div class="upload-loading-state" gap-30>
+                    <div class="upload-loading-state">
                         <div class="max-spinner" role="status" aria-label="Loading"></div>
                         <div class="upload-loading-text">Carregando arquivos</div>
                     </div>
@@ -76,8 +76,8 @@
         <div class="file-upload-content-div" :disabled="attrs.disabled ?? false">
             <div class="files-icons" v-if="modelValue.length > 0">
                 <div v-for="(file, index) in modelValue" :key="file.id || index" class="file-icon" @click="$emit('file-click', file)">
-                    <Icon icon="ph:file-pdf-light" v-if="getFileExtension(file?.file_name || '') === 'pdf'" size="1.8" p0 />
-                    <Icon icon="ph:file-jpg-light" v-if="['jpg', 'jpeg'].includes(getFileExtension(file?.file_name || ''))" size="1.8" p0 />
+                    <Icon icon="ph:file-pdf-light" v-if="getFileExtension(file?.file_name || '') === 'pdf'" size="1.8" />
+                    <Icon icon="ph:file-jpg-light" v-if="['jpg', 'jpeg'].includes(getFileExtension(file?.file_name || ''))" size="1.8" />
                     <Icon icon="ph:file-png-light" v-if="getFileExtension(file?.file_name || '') === 'png'" size="1.8" />
                     <Icon icon="fa:check-circle" class="file-check" size="0.7" />
                     <img :src="file?.thumbnail ? `/media/thumbnails/${file.thumbnail}` : file?.src" alt="Image" v-show="!file.file_name" />
@@ -247,7 +247,7 @@
     const getFileExtension = (fileName: string) => (fileName ? fileName.split('.').pop()?.toLowerCase() : '') || '';
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .input-upload-file-main-div {
         &:not(.no-style) {
             height: 100%;
@@ -259,6 +259,7 @@
             .upload-loading-state {
                 display: flex;
                 align-items: center;
+                gap: 30px;
 
                 .upload-loading-text {
                     font-size: 0.9rem;

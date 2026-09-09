@@ -310,7 +310,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .md-toolbar {
         display: flex;
         align-items: center;

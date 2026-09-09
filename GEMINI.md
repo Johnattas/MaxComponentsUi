@@ -92,9 +92,10 @@ Quando um novo arquivo `.vue` é adicionado a `src/components/`, rode `generateR
 
 ## REGRAS ESTRITAS DE ESTILIZAÇÃO FRONT-END
 
-### 1. Proibição Absoluta de Classes Utilitárias Inline no Template
+### 1. Proibição Absoluta de Classes Utilitárias e Atributos de Estilo no Template
 - **É ESTRITAMENTE PROIBIDO** utilizar classes utilitárias de estilo inline dentro dos atributos `class` ou `:class` nos templates dos componentes Vue (ex.: `class="flex p-30"`, `class="text-xs pt-1"`, `class="mb-2"`, `class="w-full flex"` são terminantemente proibidas).
-- Nenhum elemento deve carregar utilitários de margem, padding, tipografia, alinhamento ou flexbox através de classes utilitárias no template.
+- **É ESTRITAMENTE PROIBIDO** utilizar atributos de utilitários no modo UnoCSS Attributify diretamente nas tags do template (ex.: `<div flex>`, `<div s100>`, `<div w-full>`, `<div gap-4>`, `<div pb-15>`, `<MaxIcon ml-5 />` são terminantemente proibidos).
+- Nenhum elemento deve carregar utilitários de margem, padding, tipografia, dimensionamento, posicionamento, alinhamento ou flexbox/grid através de classes utilitárias ou atributos no template. Todo o estilo deve ser semântico.
 
 ### 2. O Único Meio Permitido: Seção `<style lang="scss" scoped>`
 - O único meio autorizado para aplicar estilização aos componentes Vue é através da tag de estilo do componente:
@@ -105,6 +106,7 @@ Quando um novo arquivo `.vue` é adicionado a `src/components/`, rode `generateR
   ```
 - O bloco de estilo DEVE obrigatoriamente utilizar `lang="scss"` e conter o modificador `scoped` para garantir isolamento e encapsulamento dos estilos do componente.
 - Para estilizar nós ou elementos internos do PrimeVue ou de subcomponentes filhos quando indispensável, utilize a pseudo-classe `:deep(...)` dentro do bloco com escopo.
+- Para estilizar elementos fora da raiz do componente montados no documento/body (como transições de `<slot>` ou travas de scroll em `html`), utilize `:global(...)` dentro do bloco com escopo.
 
 ### 3. Aninhamento Obrigatório Conforme a Hierarquia do Template
 - Toda estilização na seção `<style lang="scss" scoped>` deve ser estruturada com seletores semânticos descritivos (ex.: `.title-icon`, `.upload-loading-state`, `.t1-main-text`).

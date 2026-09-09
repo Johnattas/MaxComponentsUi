@@ -8,5 +8,11 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    .icon-done-max {
+        display: grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+    }
 </style>

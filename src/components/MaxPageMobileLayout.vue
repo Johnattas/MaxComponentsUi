@@ -21,7 +21,7 @@
         <main class="mobile-page-content">
             <div class="mobile-space top">
             </div>
-            <div pb-30 pt-20>
+            <div class="mobile-page-body">
                 <slot></slot>
             </div>
             <div class="mobile-space bottom">
@@ -131,7 +131,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .container-app-mobile {
         display: grid;
         grid-template-rows:
@@ -179,6 +179,11 @@
                     position: fixed;
                     background: linear-gradient(to bottom, transparent, var(--background-25, #f8fafc));
                 }
+            }
+
+            .mobile-page-body {
+                padding-top: 20px;
+                padding-bottom: 30px;
             }
 
             &::before {

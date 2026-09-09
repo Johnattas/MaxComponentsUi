@@ -221,7 +221,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-badge {
         display: inline-flex;
         align-items: center;

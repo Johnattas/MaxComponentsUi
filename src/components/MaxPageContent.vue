@@ -23,7 +23,7 @@
     }, { immediate: true });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .board_page_content_main_div {
         position: relative;
         top: 64px;

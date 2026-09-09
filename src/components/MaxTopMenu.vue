@@ -68,7 +68,7 @@
                 <MaxPopoverMenu v-if="props.addItems?.length" icon="mdi:plus-circle" title="Adicionar Novo" light size="1.4" icon-hover-white :model="props.addItems" />
             </slot>
 
-            <div class="tool-bar-plus" style="width: 30px; height: 30px;" grid center>
+            <div class="tool-bar-plus">
                 <MaxIconButton v-tooltip.bottom="'Atualizar dados'" :i="reloading ? 'loading' : 'reload'" size="1.7" light icon-hover-white @click.stop="reloadAll" />
             </div>
 
@@ -84,7 +84,7 @@
                 <!-- O MaxUserSection é prop-driven; o shell alimenta os dados a
                      partir da store e repassa os eventos para a aplicação. -->
                 <MaxUserSection
-                    ml20
+                    class="top-menu-user-section"
                     :name="user.data?.name ?? ''"
                     :company-name="user.data?.solar_company_name ?? undefined"
                     :user-id="user.data?.id ?? undefined"
@@ -168,7 +168,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .top-menu {
         position: fixed;
         top: 0;
@@ -210,7 +210,7 @@
                 background-color: rgb(255 255 255 / 10%);
             }
 
-            .max-icon-div {
+            :deep(.max-icon-div) {
                 color: currentcolor !important;
             }
         }
@@ -253,7 +253,7 @@
                 cursor: pointer;
                 transition: opacity 0.18s ease;
 
-                .max-user-avatar {
+                :deep(.max-user-avatar) {
                     width: 34px;
                     height: 34px;
                 }
@@ -302,6 +302,17 @@
                 height: 100%;
                 padding-left: 20px;
                 place-items: center;
+            }
+
+            .tool-bar-plus {
+                width: 30px;
+                height: 30px;
+                display: grid;
+                place-items: center;
+            }
+
+            .top-menu-user-section {
+                margin-left: 20px;
             }
         }
     }

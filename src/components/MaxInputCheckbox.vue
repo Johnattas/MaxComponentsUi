@@ -34,7 +34,7 @@
     watch(() => props.modelValue, (val) => temp_value.value = val);
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-check-box {
         display: grid;
         grid-template-columns: auto 1fr;

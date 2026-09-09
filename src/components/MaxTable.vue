@@ -56,7 +56,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .max-table-main-div {
     border-radius: 1rem;
     overflow: hidden !important;
@@ -66,7 +66,7 @@
     border: 1px solid var(--background-300) !important;
     position: relative;
 
-    .p-datatable {
+    :deep(.p-datatable) {
         height: 100%;
 
         .p-datatable-table-container {

@@ -97,7 +97,7 @@
     defineExpose({ value: item_value });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-accordion-item {
         border-bottom: 1px solid var(--background-300);
 
@@ -145,9 +145,11 @@
             }
         }
 
-        .max-accordion-item-content .max-accordion-item-content-inner {
-            padding: 0 1rem 1rem;
-            color: var(--background-700);
+        .max-accordion-item-content {
+            .max-accordion-item-content-inner {
+                padding: 0 1rem 1rem;
+                color: var(--background-700);
+            }
         }
     }
 

@@ -244,7 +244,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .user-section {
         display: grid;
         place-items: center end;
@@ -270,8 +270,8 @@
                 cursor: pointer;
                 transition: opacity 0.18s ease;
 
-                .p-avatar,
-                .max-user-avatar {
+                :deep(.p-avatar),
+                :deep(.max-user-avatar) {
                     width: 34px;
                     height: 34px;
                 }
@@ -314,11 +314,62 @@
             place-items: center;
             grid-column: 2;
 
-            .p-avatar {
+            :deep(.p-avatar) {
                 position: relative;
                 margin: 0 !important;
                 width: 40px;
                 height: 40px;
+            }
+        }
+
+        .impersonated-btn {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            border-radius: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            display: grid;
+            place-items: center;
+            background-color: var(--background-0);
+
+            &:hover {
+                opacity: 1;
+            }
+
+            .impersonated-btn-grid {
+                display: grid;
+                place-items: center;
+                grid-template-columns: auto 1fr;
+                gap: 10px;
+                width: 100%;
+                height: 100%;
+                padding: 0 8px;
+                font-size: 0.9rem;
+                color: var(--background-700);
+                background-color: var(--background-0);
+
+                :deep(.icon-div) {
+                    transform: translateY(1px);
+                }
+
+                .impersonated-btn-label {
+                    display: grid;
+                    place-items: center;
+                    grid-template-rows: 1fr auto;
+
+                    .a {
+                        font-size: 0.9rem;
+                    }
+
+                    .b {
+                        font-size: 0.7rem;
+                    }
+                }
             }
         }
     }
@@ -328,98 +379,47 @@
         inset: 0;
         z-index: 1100;
         background: transparent;
-    }
 
-    .max-user-section-overlay {
-        position: fixed;
-        z-index: 1101;
-        background: var(--background-0, #fff);
-        border: 1px solid var(--surface-border, #e2e8f0);
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-        min-width: 180px;
-        padding: 4px;
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
+        .max-user-section-overlay {
+            position: fixed;
+            z-index: 1101;
+            background: var(--background-0, #fff);
+            border: 1px solid var(--surface-border, #e2e8f0);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+            min-width: 180px;
+            padding: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
 
-    .max-user-section-separator {
-        border: none;
-        border-top: 1px solid var(--surface-border, #e2e8f0);
-        margin: 4px 0;
-    }
-
-    .main-item-menu-div {
-        display: grid;
-        place-items: center start;
-        gap: 10px;
-        width: 100%;
-        height: 100%;
-        padding: 8px;
-        font-size: 0.9rem;
-        color: var(--background-700);
-        background-color: var(--background-0);
-        border-radius: 0.5rem;
-        grid-template-columns: auto 1fr;
-
-        .max-icon-div {
-            color: currentcolor !important;
-        }
-
-        &:hover {
-            background-color: var(--background-100, #f1f5f9);
-            color: var(--background-775);
-            cursor: pointer;
-        }
-    }
-
-    .impersonated-btn {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        width: calc(100% + 10px);
-        height: calc(100% + 10px);
-        padding: 0.5rem;
-        font-size: 0.8rem;
-        border-radius: 0.5rem;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-        display: grid;
-        place-items: center;
-        background-color: var(--background-0);
-
-        &:hover {
-            opacity: 1;
-        }
-
-        .impersonated-btn-grid {
-            display: grid;
-            place-items: center;
-            grid-template-columns: auto 1fr;
-            gap: 10px;
-            width: 100%;
-            height: 100%;
-            padding: 0 8px;
-            font-size: 0.9rem;
-            color: var(--background-700);
-            background-color: var(--background-0);
-
-            .icon-div {
-                transform: translateY(1px);
+            .max-user-section-separator {
+                border: none;
+                border-top: 1px solid var(--surface-border, #e2e8f0);
+                margin: 4px 0;
             }
 
-            .impersonated-btn-label {
+            .main-item-menu-div {
                 display: grid;
-                place-items: center;
-                grid-template-rows: 1fr auto;
+                place-items: center start;
+                gap: 10px;
+                width: 100%;
+                height: 100%;
+                padding: 8px;
+                font-size: 0.9rem;
+                color: var(--background-700);
+                background-color: var(--background-0);
+                border-radius: 0.5rem;
+                grid-template-columns: auto 1fr;
 
-                .a {
-                    font-size: 0.9rem;
+                :deep(.max-icon-div) {
+                    color: currentcolor !important;
                 }
 
-                .b {
-                    font-size: 0.7rem;
+                &:hover {
+                    background-color: var(--background-100, #f1f5f9);
+                    color: var(--background-775);
+                    cursor: pointer;
                 }
             }
         }

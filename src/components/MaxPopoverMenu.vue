@@ -1,8 +1,8 @@
 <template>
-    <div class="max-popover-menu" ref="btn_el" pointer v-tooltip="null" :style="{ width: size_icon, height: size_icon }">
+    <div class="max-popover-menu" ref="btn_el" v-tooltip="null" :style="{ width: size_icon, height: size_icon }">
         <div v-tooltip="null" @click.stop="toggle" class="botao" :style="{ width: size_icon, height: size_icon }">
             <slot name="button">
-                <MaxButton v-bind="props" :size="props.size ?? props.sizeIcon" flex />
+                <MaxButton v-bind="props" :size="props.size ?? props.sizeIcon" class="max-popover-menu-btn" />
             </slot>
         </div>
 
@@ -181,8 +181,9 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .max-popover-menu {
+    cursor: pointer;
     max-height: 40px;
     max-width: 40px;
 
@@ -192,6 +193,10 @@
         place-items: center;
         gap: 8px;
         cursor: pointer;
+
+        .max-popover-menu-btn {
+            display: flex;
+        }
     }
 }
 
@@ -200,32 +205,34 @@
     inset: 0;
     z-index: 1100;
     background: transparent;
-}
 
-.max-popover-menu-overlay {
-    position: fixed;
-    z-index: 1101;
-    background: var(--background-0, #fff);
-    border: 1px solid var(--surface-border, #e2e8f0);
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-    min-width: 150px;
-    padding: 4px 0;
-    display: flex;
-    flex-direction: column;
-}
+    .max-popover-menu-overlay {
+        position: fixed;
+        z-index: 1101;
+        background: var(--background-0, #fff);
+        border: 1px solid var(--surface-border, #e2e8f0);
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+        min-width: 150px;
+        padding: 4px 0;
+        display: flex;
+        flex-direction: column;
 
-.max-popover-menu-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    place-items: center start;
-    gap: 8px;
-    height: 2rem;
-    cursor: pointer;
-    padding: 0 8px;
+        .max-popover-menu-item-wrapper {
+            .max-popover-menu-item {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                place-items: center start;
+                gap: 8px;
+                height: 2rem;
+                cursor: pointer;
+                padding: 0 8px;
 
-    &:hover {
-        background: var(--background-100, #f1f5f9);
+                &:hover {
+                    background: var(--background-100, #f1f5f9);
+                }
+            }
+        }
     }
 }
 </style>

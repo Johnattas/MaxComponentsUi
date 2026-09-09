@@ -237,7 +237,7 @@
     );
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-app {
         min-height: 100vh;
         min-height: 100dvh;
@@ -283,7 +283,7 @@
         }
     }
 
-    html.max-scroll-locked {
+    :global(html.max-scroll-locked) {
         overflow: hidden !important;
         touch-action: none;
 

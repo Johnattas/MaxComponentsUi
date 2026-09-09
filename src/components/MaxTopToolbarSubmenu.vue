@@ -13,8 +13,6 @@
                 <div v-if="item.divider" class="divider-space"></div>
                 <div
                     v-else-if="hasContent(item.label)"
-                    pointer
-                    w-flex
                     class="menu-item-content"
                     :class="{ 'has-children': hasChildren(item) }"
                     @click="onItemClick(item)"
@@ -87,3 +85,17 @@
         emit('item-click', item);
     };
 </script>
+
+<style lang="scss" scoped>
+.max-top-toolbar-submenu {
+    .p-menubar-item {
+        .p-menubar-item-content {
+            .menu-item-content {
+                cursor: pointer;
+                display: flex;
+                width: 100%;
+            }
+        }
+    }
+}
+</style>

@@ -14,8 +14,6 @@
                         <div v-if="item.divider" class="divider-space"></div>
                         <div
                             v-else-if="hasContent(item.label)"
-                            pointer
-                            w-flex
                             class="menu-item-content root"
                             @click="handleItemClick(item)"
                         >
@@ -105,7 +103,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .tool-bar-top-main-div {
         display: grid;
         position: relative;
@@ -201,7 +199,7 @@
                         }
                     }
 
-                    .p-menubar-submenu {
+                    :deep(.p-menubar-submenu) {
                         list-style: none;
                         margin: 0;
                         padding: 0;

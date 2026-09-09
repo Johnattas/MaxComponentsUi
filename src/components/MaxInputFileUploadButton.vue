@@ -4,7 +4,7 @@
             <slot>
                 <div class="slot-main-div">
                     <Icon :i="attrs.ico ?? attrs.icon ?? attrs.i ?? 'material-symbols:upload-rounded'" size="1.4" />
-                    <div v-if="props.label" pl-10 class="input-file-button-label">{{ props.label }}</div>
+                    <div v-if="props.label" class="input-file-button-label">{{ props.label }}</div>
                 </div>
             </slot>
         </MaxInputFileUpload>
@@ -28,7 +28,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .input-upload-file-button-main-div {
         position: absolute;
         height: 100%;
@@ -60,6 +60,7 @@
                     .input-file-button-label {
                         color: var(--background-700);
                         font-size: 0.9rem;
+                        padding-left: 10px;
                     }
                 }
 

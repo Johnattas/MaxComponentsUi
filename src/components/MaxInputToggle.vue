@@ -93,7 +93,7 @@
     defineExpose({ update_value, modelvalue });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .input-toggle-field-main-div {
         display: grid;
         place-items: start center;

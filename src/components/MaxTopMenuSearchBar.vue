@@ -3,8 +3,6 @@
         <MaxInputText
             ref="input_search_ref"
             v-model="search_bar.input_value"
-            w-max-400
-            flex
             :placeholder="props.placeholder"
             class="search-top-bar-input"
             :icon="search_bar.is_filtering ? 'eos-icons:loading' : 'material-symbols:search-rounded'"
@@ -35,7 +33,6 @@
                         <MaxInputText
                             ref="input_search_mobile_ref"
                             v-model="search_bar.input_value"
-                            flex
                             :placeholder="props.placeholder"
                             class="search-top-bar-input mobile-input"
                             :icon="search_bar.is_filtering ? 'eos-icons:loading' : 'material-symbols:search-rounded'"
@@ -131,7 +128,7 @@
     onUnmounted(() => document.removeEventListener('keydown', handleSearchKeydown));
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .search-top-bar {
         position: relative;
         display: grid;
@@ -139,7 +136,7 @@
         height: 36px;
         place-items: center;
 
-        .max-input-field-div {
+        :deep(.max-input-field-div) {
             border: none !important;
             outline: rgb(255 255 255 / 10%) 1px solid !important;
             background-color: rgb(0 0 0 / 10%) !important;
@@ -147,21 +144,23 @@
 
         .search-top-bar-input {
             position: relative;
+            max-width: 400px;
+            display: flex;
 
-            input {
+            :deep(input) {
                 border-color: rgb(255 255 255 / 7%);
                 background-color: rgb(255 255 255 / 7%);
                 color: rgb(255 255 255 / 70%);
                 padding-left: 35px !important;
             }
 
-            .max-icon-div {
+            :deep(.max-icon-div) {
                 svg {
                     color: rgb(255 255 255 / 20%) !important;
                 }
             }
 
-            .checkbox-search-top {
+            :deep(.checkbox-search-top) {
                 position: absolute;
                 right: 15px;
                 bottom: 8px;
@@ -182,7 +181,7 @@
             }
         }
 
-        .p-checkbox-box {
+        :deep(.p-checkbox-box) {
             border: 1px solid rgb(255 255 255 / 10%) !important;
             background-color: rgb(255 255 255 / 10%) !important;
             min-width: 16px !important;
@@ -192,11 +191,11 @@
             transform: translateX(-45px) !important;
         }
 
-        input {
+        :deep(input) {
             padding: 0 !important;
         }
 
-        .p-checkbox-input {
+        :deep(.p-checkbox-input) {
             padding: 0 !important;
         }
     }
@@ -231,6 +230,7 @@
             width: 100%;
 
             .mobile-input {
+                display: flex;
                 flex: 1;
                 min-width: 0;
             }

@@ -218,7 +218,7 @@
     defineExpose({ open, close, toggle, is_show });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-drawer-mask {
         position: fixed;
         inset: 0;

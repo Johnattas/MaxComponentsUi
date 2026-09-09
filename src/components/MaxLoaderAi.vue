@@ -19,7 +19,7 @@
     const DotLottieVue = defineAsyncComponent(() => import('@lottiefiles/dotlottie-vue').then((m) => m.DotLottieVue));
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .loader-main-div-ai {
         height: 100%;
         width: 100%;
@@ -60,9 +60,7 @@
         }
     }
 
-    .LoadScreen + .container {
-        #conteudo {
-            filter: blur(2px);
-        }
+    :global(.LoadScreen + .container #conteudo) {
+        filter: blur(2px);
     }
 </style>

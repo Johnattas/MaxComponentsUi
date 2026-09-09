@@ -110,7 +110,7 @@
 
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .input-upload-file-big-main-div {
         height: 100%;
         width: 100%;

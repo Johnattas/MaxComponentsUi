@@ -196,9 +196,9 @@
     }
 </script>
 
-<style lang="scss">
-    .max-drawer.max-side-menu-mobile-drawer,
-    .max-side-menu-mobile-drawer {
+<style lang="scss" scoped>
+    :deep(.max-drawer.max-side-menu-mobile-drawer),
+    :deep(.max-side-menu-mobile-drawer) {
         width: min(88%, 340px) !important;
         padding: 0;
         background-color: var(--background-0, #fff);

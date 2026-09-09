@@ -10,7 +10,7 @@
     const attrs = useAttrs();
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .container-app {
         display: grid;
         overflow: hidden;

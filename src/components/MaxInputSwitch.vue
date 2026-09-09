@@ -112,7 +112,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .max-switch {
     display: grid;
     grid-template-columns: 1fr;

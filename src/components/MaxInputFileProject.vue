@@ -1,23 +1,23 @@
 <template>
-    <div :class="`max-input-file-project input-project-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" ref="drop_zone_ref" relative>
+    <div :class="`max-input-file-project input-project-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" ref="drop_zone_ref">
         <MaxIconButton class="open-files-btn"  :hoverScale="1.06" @click="() => open()">
-            <div class="open-files" pointer >
+            <div class="open-files">
                 <div class="instruction">
                     Insira fotos dos documentos ou Documentos em PDF aqui
                     <br />
                     para registrar os dados automaticamente.
                 </div>
                 <div>Clique aqui ou arraste e solte os documentos para carregar.</div>
-                <MaxIcon icon="material-symbols:folder-open" size="4" color-gray />
+                <MaxIcon icon="material-symbols:folder-open" size="4" class="folder-icon" />
             </div>
         </MaxIconButton>
         <div class="file-list">
-            <div v-for="file in temp_files" :key="file.id" class="file-item" pointer>
-                <div relative class="icons-file">
+            <div v-for="file in temp_files" :key="file.id" class="file-item">
+                <div class="icons-file">
                     <MaxIcon :icon="fileIcon(file)" size="2" />
-                    <MaxLoaderIcon i="loading" size="2" style="position: absolute; top: 0;" class="loading-icon" v-if="file.to_request_ai && !file.data_ai"/>
+                    <MaxLoaderIcon i="loading" size="2" class="loading-icon" v-if="file.to_request_ai && !file.data_ai"/>
                     <div class="ai-icon" v-if="file.data_ai !== null" >
-                        <MaxIcon i="material-icon-theme:gemini-ai" size="0.9" color-blue-700 />
+                        <MaxIcon i="material-icon-theme:gemini-ai" size="0.9" class="gemini-icon" />
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .input-project-div {
         width: 100%;
         height: 300px;
@@ -211,9 +211,14 @@
             text-align: center;
             gap: 5px;
             color: var(--background-650);
+            cursor: pointer;
 
             .instruction {
                 text-align: center;
+            }
+
+            .folder-icon {
+                color: var(--background-500);
             }
 
             .icon-div {
@@ -264,7 +269,14 @@
             right: 10px;
         }
 
+        .file-list {
+            .file-item {
+                cursor: pointer;
+            }
+        }
+
         .icons-file {
+            position: relative;
             display: grid;
             place-items: center;
             width: 29px;
@@ -289,6 +301,10 @@
             right: -5px;
             border-radius: 50%;
             border: 1px solid var(--background-400);
+
+            .gemini-icon {
+                color: var(--blue-700);
+            }
 
             svg {
                 width: 10px !important;

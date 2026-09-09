@@ -2,7 +2,7 @@
     <div class="max-side-menu side-menu" v-bind="attrs">
         <div class="grid-logo-and-menu">
             <div v-if="!isMobile" v-tooltip="system.version" class="space-logo" @click="onLogoClick">
-                <MaxLogo v-if="logoSrc" :src="logoSrc" :to="effectiveRouteLogo" fill flex no-padding />
+                <MaxLogo v-if="logoSrc" :src="logoSrc" :to="effectiveRouteLogo" :no-padding="true" class="side-menu-logo" />
             </div>
             <div class="menu">
                 <div v-if="items" class="grupo items">
@@ -156,6 +156,11 @@
                 justify-content: center;
                 box-sizing: border-box;
                 flex-shrink: 0;
+
+                :deep(.side-menu-logo) {
+                    display: flex;
+                    background-color: var(--layout-shell-bg, #003048);
+                }
             }
 
             .menu {

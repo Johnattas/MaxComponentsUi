@@ -60,7 +60,7 @@
     onBeforeUnmount(() => unregister?.());
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .max-tab {
         background: none;
         border: none;

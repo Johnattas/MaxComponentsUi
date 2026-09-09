@@ -59,7 +59,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .radio-button-input-main-div {
         display: flex;
         align-items: center;

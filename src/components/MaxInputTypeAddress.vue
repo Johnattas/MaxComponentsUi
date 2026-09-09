@@ -63,7 +63,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .label_div-type-address {
         display: grid;
         grid-template-columns: auto 1fr;

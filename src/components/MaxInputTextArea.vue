@@ -145,11 +145,11 @@
     watch(() => props.modelValue, (val) => temp_value.value = val ?? '');
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .input-text-area-main-div {
         grid-template-rows: auto auto;
 
-        .max-input-field-div {
+        :deep(.max-input-field-div) {
             height: auto !important;
             padding: 8px 0 5px !important;
 

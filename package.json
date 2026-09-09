@@ -35,7 +35,7 @@
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
         "type-check": "vue-tsc --noEmit",
-        "lint": "eslint . --fix && stylelint \"**/*.{scss,vue}\" --fix",
+        "lint": "eslint . --fix && stylelint \"src/**/*.{scss,vue}\" --fix",
         "prerelease": "node -e \"const b=require('node:child_process').execSync('git branch --show-current').toString().trim(); if(b!=='main'){console.error(`Release só é permitido a partir da branch main (branch atual: ${b}).`); process.exit(1);}\"",
         "release": "npm run type-check && npm run build && npm run test && npm version patch -m 'Upgrade to %s' && git push origin main --follow-tags && npm publish --access public",
         "typecheck:tsgo": "tsgo --noEmit",

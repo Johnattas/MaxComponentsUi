@@ -6,7 +6,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .input-file-main-div {
         display: grid;
         place-items: center;
