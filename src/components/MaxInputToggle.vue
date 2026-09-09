@@ -1,5 +1,5 @@
 <template>
-    <div :class="`input-toggle-field-main-div ${attrs.label !== undefined ? 'labeled' : ''}`">
+    <div :class="`max-input-toggle input-toggle-field-main-div ${attrs.label !== undefined ? 'labeled' : ''}`">
         <div :class="`input-toggle-field-label-main-div ${attrs.labelCenter !== undefined ? 'label-center' : ''}`">
             <div class="input-toggle-field-label-div" v-if="attrs.label !== undefined">
                 {{ attrs.label }}

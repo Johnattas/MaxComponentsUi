@@ -1,5 +1,5 @@
 <template>
-    <nav class="bottom-menu" :class="{ 'is-curved': props.curved && hasFab }">
+    <nav class="max-bottom-menu bottom-menu" :class="{ 'is-curved': props.curved && hasFab }">
         <!-- Fundo em SVG com recorte côncavo suave no centro quando há FAB -->
         <svg
             v-if="props.curved && hasFab"

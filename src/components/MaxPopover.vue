@@ -1,5 +1,5 @@
 <template>
-    <div ref="btn_el" pointer v-tooltip="null" class="max-popover-main">
+    <div ref="btn_el" pointer v-tooltip="null" class="max-popover max-popover-main" :class="props.class">
         <div
             v-tooltip="null"
             @click.stop="toggle"

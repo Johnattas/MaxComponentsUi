@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showed && hasContent(toolbar.items)" ref="element_ref" :class="`tool-bar-top-main-div ${attrs.plus === true ? 'onlyOne' : ''}`">
+    <div v-if="showed && hasContent(toolbar.items)" ref="element_ref" :class="`max-top-toolbar tool-bar-top-main-div ${attrs.plus === true ? 'onlyOne' : ''}`">
         <nav ref="menu_ref" class="menu_bar_project_top" role="menubar">
             <ul class="p-menubar-root-list">
                 <li

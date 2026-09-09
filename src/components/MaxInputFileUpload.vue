@@ -1,5 +1,5 @@
 <template>
-    <div ref="rootRef" class="input-upload-file-main-div" :class="{ 'is-dragover': isOverDropZone }" v-bind="attrs">
+    <div ref="rootRef" class="max-input-file-upload input-upload-file-main-div" :class="{ 'is-dragover': isOverDropZone }" v-bind="attrs">
         <input
             ref="nativeInputRef"
             type="file"

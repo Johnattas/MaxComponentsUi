@@ -1,6 +1,6 @@
 <!-- LoadingComponent.vue -->
 <template>
-    <div v-bind="attrs" v-if="attrs.show !== undefined ? attrs.show : true" class="loader-main-div-ai">
+    <div v-bind="attrs" v-if="attrs.show !== undefined ? attrs.show : true" class="max-loader-ai loader-main-div-ai">
         <div class="items">
             <DotLottieVue style="height: 400px; width: 400px;" autoplay loop src="https://lottie.host/c6ad8a06-43b7-4f0e-876e-634d1f4bb58d/o6vjcixeiy.lottie" />
             <div v-if="attrs.label" class="item-label">{{ attrs.label }}</div>

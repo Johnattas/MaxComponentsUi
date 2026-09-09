@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="props" class="if" :value="temp_value" :done="isDone" :error="props.error" :caution="caution">
+    <InputBase v-bind="props" class="max-input-auto-complete if" :value="temp_value" :done="isDone" :error="props.error" :caution="caution">
         <div ref="ac" class="p-autocomplete" :class="{ 'p-disabled': props.disabled }">
             <input
                 ref="inputEl"

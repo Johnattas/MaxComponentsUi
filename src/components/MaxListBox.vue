@@ -1,5 +1,5 @@
 <template>
-    <div class="max-listbox" :class="{ 'is-disabled': props.disabled, 'two-lines': props.twoLines }" :style="rootStyle">
+    <div class="max-list-box max-listbox" :class="{ 'is-disabled': props.disabled, 'two-lines': props.twoLines }" :style="rootStyle">
         <div v-if="$slots.header || props.title" class="max-listbox-header">
             <slot name="header">
                 <span class="max-listbox-title">{{ props.title }}</span>

@@ -1,5 +1,5 @@
 <template>
-    <div class="top-menu" v-bind="attrs" :screen="isMobile ? 'mobile' : 'desktop'">
+    <div class="max-top-menu top-menu" v-bind="attrs" :screen="isMobile ? 'mobile' : 'desktop'">
         <!-- Estrutura Mobile: 3 Colunas Estritas (Hambúrguer 44px, Centro 1fr, Ações auto) estilo AgenteDeBolso -->
         <div v-if="isMobile" class="top-menu-elementos" :screen="'mobile'" v-bind="attrs">
             <div

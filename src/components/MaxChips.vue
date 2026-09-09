@@ -4,7 +4,7 @@
         :done="props.done ?? isDone"
         :error="props.error ?? error_msg"
         :caution="caution"
-        class="max-chips-wrapper"
+        class="max-chips max-chips-wrapper"
     >
         <div
             class="max-chips-container p-inputtext p-component"

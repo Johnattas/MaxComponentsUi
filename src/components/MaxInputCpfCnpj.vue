@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="props" :error="error_msg ?? undefined" :caution="caution" :done="done ?? undefined">
+    <InputBase class="max-input-cpf-cnpj" v-bind="props" :error="error_msg ?? undefined" :caution="caution" :done="done ?? undefined">
         <input
             type="text"
             class="p-inputtext p-component"

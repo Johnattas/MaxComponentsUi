@@ -1,5 +1,5 @@
 <template>
-    <div ref="main_board_ref" class="board_page_content_main_div">
+    <div ref="main_board_ref" class="max-page-content board_page_content_main_div">
         <div class="pane1">
             <slot></slot>
         </div>

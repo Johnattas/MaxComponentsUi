@@ -5,7 +5,7 @@
         :show-close-icon="false"
         :base-z-index="1000"
         no-padding
-        class="max-side-menu-mobile-drawer"
+        class="max-side-menu-mobile max-side-menu-mobile-drawer"
     >
         <div class="mobile-side-menu">
             <!-- Cabeçalho com dados e avatar do usuário -->

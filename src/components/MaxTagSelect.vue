@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="{ ...props, ...attrs }" class="max-select-tag" input-click-auto no-dropdown>
+    <InputBase v-bind="{ ...props, ...attrs }" class="max-tag-select max-select-tag" input-click-auto no-dropdown>
         <div v-if="showPlaceholder" class="tab-placeholder-select">
             {{ placeholderText }}
         </div>

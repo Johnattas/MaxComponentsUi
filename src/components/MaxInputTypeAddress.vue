@@ -1,5 +1,5 @@
 <template>
-    <MaxInputSelect v-bind="attrs" :options="listTypeAddress" :optionLabel="attrs.optionLabel ?? 'name'" :optionValue="attrs.optionValue ?? 'value'" v-model="inputValue" />
+    <MaxInputSelect class="max-input-type-address" v-bind="attrs" :options="listTypeAddress" :optionLabel="attrs.optionLabel ?? 'name'" :optionValue="attrs.optionValue ?? 'value'" v-model="inputValue" />
 </template>
 
 <script setup lang="ts">

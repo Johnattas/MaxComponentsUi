@@ -1,7 +1,7 @@
 <template>
     <InputBase
         v-bind="props"
-        class="input-base-date-picker"
+        class="max-input-date-picker input-base-date-picker"
         :error="errorMessage"
         :caution="isCaution"
         :done="isDone"

@@ -1,5 +1,5 @@
 <template>
-    <div class="container-app" v-bind="attrs">
+    <div class="max-container-app container-app" v-bind="attrs">
         <slot></slot>
     </div>
 </template>

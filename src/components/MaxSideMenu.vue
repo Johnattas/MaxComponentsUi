@@ -1,5 +1,5 @@
 <template>
-    <div class="side-menu" v-bind="attrs">
+    <div class="max-side-menu side-menu" v-bind="attrs">
         <div class="grid-logo-and-menu">
             <div v-if="system.type_device === 'desktop'" v-tooltip="system.version" class="space-logo" @click="clearSearch">
                 <MaxLogo v-if="logoSrc" :src="logoSrc" fill flex no-padding />

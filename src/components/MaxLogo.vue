@@ -1,5 +1,5 @@
 <template>
-    <div class="logo" pointer :rounded="props.rounded ? true : undefined" :no-padding="props.noPadding ? true : undefined">
+    <div class="max-logo logo" pointer :rounded="props.rounded ? true : undefined" :no-padding="props.noPadding ? true : undefined">
         <RouterLink to="/">
             <img v-if="props.src" :src="`${props.src}`" alt="Image" />
         </RouterLink>

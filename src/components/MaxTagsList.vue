@@ -1,5 +1,5 @@
 <template>
-    <div class="max-tag-list" v-bind="attrs">
+    <div class="max-tags-list max-tag-list" v-bind="attrs">
         <div v-for="item in items_array" :key="item.value ?? item.id ?? item.name">
             <MaxTagSelect flex :modelValue="item.value" :options="options_array" no-dropdown uppercase @update:modelValue="(val: any) => replaceItem(item, val)">
                 <template #btn-right>

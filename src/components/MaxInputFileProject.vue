@@ -1,5 +1,5 @@
 <template>
-    <div :class="`input-project-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" ref="drop_zone_ref" relative>
+    <div :class="`max-input-file-project input-project-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" ref="drop_zone_ref" relative>
         <MaxIconButton class="open-files-btn"  :hoverScale="1.06" @click="() => open()">
             <div class="open-files" pointer >
                 <div class="instruction">

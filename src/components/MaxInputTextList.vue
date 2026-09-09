@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="{...props}" class="max-input-text-list-div">
+    <InputBase v-bind="{...props}" class="max-input-text-list max-input-text-list-div">
         <div class="max-code-editor">
             <div class="line-numbers" ref="lineNumbersRef">
                 <div v-for="n in lineCount" :key="n" class="line-number">{{ n }}</div>

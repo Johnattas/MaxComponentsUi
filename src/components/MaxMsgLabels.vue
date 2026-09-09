@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!noErrors" :class="typeSelect" class="labels text-xs pt-1 subpixel-antialiased">
+    <div v-if="!noErrors" :class="typeSelect" class="max-msg-labels labels text-xs pt-1 subpixel-antialiased">
         <span v-if="obrigatorio" class="obrigatorio">*</span>
         <div v-if="msgError" class="erro">
             <div class="fill"></div>

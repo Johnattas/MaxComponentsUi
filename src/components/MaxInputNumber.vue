@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="props" :value="temp_value" :done="isDone" :error="error_msg" :caution="caution">
+    <InputBase class="max-input-number" v-bind="props" :value="temp_value" :done="isDone" :error="error_msg" :caution="caution">
         <input
             ref="inputRef"
             type="text"

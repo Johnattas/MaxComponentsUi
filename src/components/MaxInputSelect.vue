@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="{ ...props, ...attrsWithoutModelProps }" class="select_input_div">
+    <InputBase v-bind="{ ...props, ...attrsWithoutModelProps }" class="max-input-select select_input_div">
         <div v-if="showPlaceholder" class="placeholder-select">
             {{ placeholderText }}
         </div>

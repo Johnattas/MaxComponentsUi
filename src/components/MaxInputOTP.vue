@@ -1,7 +1,7 @@
 <template>
     <InputBase
         v-bind="props"
-        class="max-input-otp-base"
+        class="max-input-otp max-input-otp-base"
         no-border
         text-center
         :label="props.label"

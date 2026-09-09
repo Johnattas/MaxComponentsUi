@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="props" :done="props.done ?? isDone" :error="props.error ?? error_msg" :caution="caution" class="max-input-color">
+    <InputBase v-bind="props" :done="props.done ?? isDone" :error="props.error ?? error_msg" :caution="caution" class="max-color-picker max-input-color">
         <div class="item-color" :style="{ backgroundColor: nativeColor }">
             <input
                 type="color"

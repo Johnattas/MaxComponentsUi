@@ -1,5 +1,5 @@
 <template>
-    <div class="max-auth-page" s100 grid-center @keyup.enter="onEnter">
+    <div class="max-auth-card max-auth-page" s100 grid-center @keyup.enter="onEnter">
         <div class="max-auth-card">
             <slot name="header" :step="codeSent ? 'code' : 'phone'" :mode="mode" :phone="phone">
                 <MaxTitle2

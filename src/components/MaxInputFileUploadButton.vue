@@ -1,5 +1,5 @@
 <template>
-    <div class="input-upload-file-button-main-div" >
+    <div class="max-input-file-upload-button input-upload-file-button-main-div" >
         <MaxInputFileUpload v-bind="attrs" :modelValue="(attrs.modelValue as any)" class="no-style" @upload="onUpload" >
             <slot>
                 <div class="slot-main-div">

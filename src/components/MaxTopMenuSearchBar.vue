@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!isMobile" class="search-top-bar">
+    <div v-if="!isMobile" class="max-top-menu-search-bar search-top-bar">
         <MaxInputText
             ref="input_search_ref"
             v-model="search_bar.input_value"

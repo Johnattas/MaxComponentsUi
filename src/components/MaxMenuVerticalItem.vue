@@ -3,7 +3,7 @@
         v-for="(item, index) in props.items"
         :key="item.id ?? index"
         v-tooltip.right="item.details.tooltip"
-        :class="`item_menu ${isActive(item) ? 'active' : ''}`"
+        :class="`max-menu-vertical-item item_menu ${isActive(item) ? 'active' : ''}`"
         :page_component="item.details.page_component"
         @click="clearSearch"
     >

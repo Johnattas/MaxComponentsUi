@@ -1,6 +1,6 @@
 <template>
     <div
-        class="user-section"
+        class="max-user-section user-section"
         :class="{ 'only-avatar': isCompact }"
         :screen="props.screen"
         ref="root_el"

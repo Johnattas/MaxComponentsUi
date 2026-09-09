@@ -1,5 +1,5 @@
 <template>
-    <InputBase class="input-search-main-div" :iconRight="isLoading === true ? 'line-md:loading-twotone-loop' :  'material-symbols:search-rounded'">
+    <InputBase class="max-input-search input-search-main-div" :iconRight="isLoading === true ? 'line-md:loading-twotone-loop' :  'material-symbols:search-rounded'">
         <input type="text" class="p-inputtext" v-bind="attrs" :value="temp_value" @input="onInput" />
     </InputBase>
 </template>

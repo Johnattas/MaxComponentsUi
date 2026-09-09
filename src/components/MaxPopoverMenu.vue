@@ -107,7 +107,7 @@
     const position = computed(() => {
         const targetX = x.value;
         const targetY = y.value;
-        const targetW = width_btn.value;
+        const _targetW = width_btn.value;
         const targetH = height_btn.value;
 
         let top = targetY + targetH + 4;

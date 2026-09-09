@@ -1,5 +1,5 @@
 <template>
-    <div class="md-toolbar" :class="{ 'md-toolbar--disabled': !editor || editor.isEditable === false }">
+    <div class="max-input-markdown-toolbar md-toolbar" :class="{ 'md-toolbar--disabled': !editor || editor.isEditable === false }">
         <span v-if="props.label" class="md-toolbar__label">{{ props.label }}</span>
         <span v-if="props.label" class="md-toolbar__divider" />
 

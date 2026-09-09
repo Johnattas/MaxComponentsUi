@@ -1,5 +1,5 @@
 <template>
-    <div ref="drop_zone_ref" :class="`input-upload-file-big-main-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" @click="onAreaClick" >
+    <div ref="drop_zone_ref" :class="`max-input-file-upload-big input-upload-file-big-main-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" @click="onAreaClick" >
         <!-- Área principal clicável -->
         <div class="upload-area" v-if="!uploading && !showError">
             <slot>

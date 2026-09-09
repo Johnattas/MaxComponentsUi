@@ -1,5 +1,5 @@
 <template>
-    <div class="map-main-div" s24 v-if="coordinates.latitude !== 0 && coordinates.longitude !== 0">
+    <div class="max-maps map-main-div" s24 v-if="coordinates.latitude !== 0 && coordinates.longitude !== 0">
         <div class="mapa" ref="mapDiv" v-if="effectiveApiKey">
             <GoogleMap :api-key="effectiveApiKey" style="width: 100%; height: 100%;" :center="center" :zoom="zoom" ref="mapRef" :mapTypeId="props.mapTypeId" :mapId="effectiveMapId" v-if="isMounted">
                 <AdvancedMarker :options="marker_options" :pin-options="pinOptions" ref="markerRef" @dragend="onDrag" />

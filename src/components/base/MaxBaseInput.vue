@@ -37,6 +37,7 @@
     const hasValue = computed(() => props.modelValue !== null && props.modelValue !== undefined && props.modelValue !== '');
 
     const inputClass = computed(() => ({
+        'max-base-input': true,
         'max-input': true,
         'max-input-has-value': hasValue.value,
         'max-input-sm': props.size === 'small',

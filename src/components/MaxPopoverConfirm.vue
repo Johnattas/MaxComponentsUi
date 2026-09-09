@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <TransitionFade>
-            <div class="background-popover-confirm" @click.stop="confirm_store.hide" v-if="confirm_store.show">
+            <div class="max-popover-confirm background-popover-confirm" @click.stop="confirm_store.hide" v-if="confirm_store.show">
                 <div
                     class="max-icon-confirm-dialog"
                     ref="el"

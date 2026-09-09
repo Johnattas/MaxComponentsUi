@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="props" class="input-credit-card-cvv-base" text-center :label="props.label" :done="done" :required="props.required" :error="error_msg">
+    <InputBase v-bind="props" class="max-input-credit-card-cvv input-credit-card-cvv-base" text-center :label="props.label" :done="done" :required="props.required" :error="error_msg">
         <MaxBaseInput type="text" v-bind="attrs" v-model="temp_value" v-maska:unmaskedValue.unmasked="maskValue" placeholder="000" @blur="checkDone()" />
     </InputBase>
 </template>
