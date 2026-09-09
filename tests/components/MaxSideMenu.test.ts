@@ -27,6 +27,7 @@ vi.mock('@maxvue/max-use', async (importOriginal) => ({
 
 import MaxSideMenu from '../../src/components/MaxSideMenu.vue';
 import MaxMenuVerticalItem from '../../src/components/MaxMenuVerticalItem.vue';
+import MaxIconButton from '../../src/components/MaxIconButton.vue';
 import { useSearchBarStore } from '../../src/stores/useSearchBar.Store';
 import { useSystemStore } from '../../src/stores/useSystem.Store';
 
@@ -270,5 +271,27 @@ describe('MaxMenuVerticalItem', () => {
         const system = useSystemStore();
 
         expect(system.page).toBe('projects');
+    });
+
+    it('passa light=false e color="var(--blue-750)" para o MaxIconButton quando o item está ativo', () => {
+        const wrapper = mountWithPinia(MaxMenuVerticalItem, {
+            props: { items: [item({ icon: 'mdi:home', page_component: 'Projects' })] }
+        });
+
+        const iconButton = wrapper.findComponent(MaxIconButton);
+        expect(iconButton.exists()).toBe(true);
+        expect(iconButton.props('light')).toBe(false);
+        expect(iconButton.props('color')).toBe('var(--blue-750)');
+    });
+
+    it('passa light=true e color=undefined para o MaxIconButton quando o item está inativo', () => {
+        const wrapper = mountWithPinia(MaxMenuVerticalItem, {
+            props: { items: [item({ icon: 'mdi:cog', page_component: 'Settings' })] }
+        });
+
+        const iconButton = wrapper.findComponent(MaxIconButton);
+        expect(iconButton.exists()).toBe(true);
+        expect(iconButton.props('light')).toBe(true);
+        expect(iconButton.props('color')).toBeUndefined();
     });
 });

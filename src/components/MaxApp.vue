@@ -128,7 +128,7 @@
         profile: [];
         settings: [];
         support: [];
-        toggleDarkMode: [];
+        toggleDarkMode: [isDark?: boolean];
         logout: [];
         endImpersonate: [];
         fabClick: [];
@@ -216,7 +216,7 @@
 
         }
 
-        emit('toggleDarkMode');
+        emit('toggleDarkMode', nextDark);
     };
 
     // Sincroniza a classe .dark com a preferência persistida do usuário ao carregar

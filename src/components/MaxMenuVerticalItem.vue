@@ -7,7 +7,13 @@
         :page_component="item.details.page_component"
         @click="clearSearch"
     >
-        <MaxIconButton :i="item.details.icon ?? undefined" size="1.5" light :route="item.details.route?.trim() ?? null" />
+        <MaxIconButton
+            :i="item.details.icon ?? undefined"
+            size="1.5"
+            :light="!isActive(item)"
+            :color="isActive(item) ? 'var(--blue-750)' : undefined"
+            :route="item.details.route?.trim() ?? null"
+        />
         <svg class="curva cima" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 3000 3000">
             <path d="M-7.07 3007.07c0,-1656.85 1343.15,-3000 3000,-3000l-3000 0 0 3000z" />
         </svg>
@@ -78,12 +84,22 @@
         &.active {
             position: relative;
 
-            .max-icon-div {
+            .max-icon-div,
+            .max-icon {
                 z-index: 1;
                 color: var(--blue-750) !important;
 
+                svg {
+                    color: var(--blue-750) !important;
+                    fill: currentcolor;
+                }
+
                 &:hover {
                     color: var(--blue-650) !important;
+
+                    svg {
+                        color: var(--blue-650) !important;
+                    }
                 }
             }
 
