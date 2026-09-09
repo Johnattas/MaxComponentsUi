@@ -166,6 +166,12 @@
             outline: none;
             resize: none;
             overflow-y: auto;
+            color: var(--background-700);
+            font-family: inherit;
+
+            &::placeholder {
+                color: var(--background-650);
+            }
 
             &[no-border] {
                 border: none !important;

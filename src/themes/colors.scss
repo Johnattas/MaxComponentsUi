@@ -1042,10 +1042,10 @@
     --alerta-c: var(--warn-500);
 }
 
-:root {
-    .dark {
-        --pink: #ED58A2;
-        --pink-850: #FFF;
+:root.dark,
+.dark {
+    --pink: #ED58A2;
+    --pink-850: #FFF;
         --pink-825: #FEF6FA;
         --pink-800: #FDEEF5;
         --pink-775: #FCE6F1;
@@ -2017,4 +2017,3 @@
         --error-25: #600;
         --error-0: #5A0000;
     }
-}
