@@ -102,6 +102,12 @@
             background-color: rgb(255 255 255 / 65%);
             z-index: 10000 !important;
 
+            @media (width <= 768px) {
+                min-width: auto;
+                max-width: calc(100vw - 50px);
+                box-sizing: border-box;
+            }
+
             .load-screen-message-item {
                 display: grid;
                 grid-template-columns: 20px 1fr;
