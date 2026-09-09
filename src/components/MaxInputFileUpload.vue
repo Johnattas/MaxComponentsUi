@@ -48,9 +48,9 @@
                     </slot>
                 </div>
                 <div v-else-if="uploading || attrs.uploading">
-                    <div class="flex" gap-30>
+                    <div class="upload-loading-state" gap-30>
                         <div class="max-spinner" role="status" aria-label="Loading"></div>
-                        <div>Carregando arquivos</div>
+                        <div class="upload-loading-text">Carregando arquivos</div>
                     </div>
                 </div>
                 <div v-else-if="showError">
@@ -255,6 +255,16 @@
             border-radius: calc(1rem - 5px);
             padding-left: 0;
             position: relative;
+
+            .upload-loading-state {
+                display: flex;
+                align-items: center;
+
+                .upload-loading-text {
+                    font-size: 0.9rem;
+                    color: var(--background-750);
+                }
+            }
 
             .max-spinner {
                 width: 20px;

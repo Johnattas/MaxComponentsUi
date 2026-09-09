@@ -1,9 +1,9 @@
 <template>
-    <div class="max-title-2 select-none">
+    <div class="max-title-2">
         <!-- Sem `pr-8` aqui: o MaxIcon replica os attrs no div interno (v-bind="attrs"), e o
              padding duplicado esmagava o svg (19,5px − 8 − 8 = 3,5px). O espaçamento entre
              ícone e texto é o column-gap do .max-title-2. -->
-        <MaxIcon :i="resolvedIcon" v-if="resolvedIcon" :size="resolvedIconSize" class="mb-2" />
+        <MaxIcon :i="resolvedIcon" v-if="resolvedIcon" :size="resolvedIconSize" class="title-icon" />
         <div>
             <div v-if="resolvedTitle" class="text-h1">{{ resolvedTitle }}</div>
             <div v-if="resolvedSubtitle" class="text-h2" v-html="resolvedSubtitle"></div>
@@ -37,12 +37,17 @@
 
 <style scoped lang="scss">
     .max-title-2 {
+        user-select: none;
         display: grid;
         grid-template-columns: auto 1fr;
         column-gap: 8px;
         padding: 1rem 0 5px;
         width: 100%;
         place-items: center start;
+
+        .title-icon {
+            margin-bottom: 0.5rem;
+        }
 
         .text-h1 {
             font-weight: 500;
