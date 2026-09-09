@@ -106,7 +106,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--blue-750, #1e3a5f);
+        background-color: #005F77;
         color: var(--max-user-avatar-color, #fff);
 
         .max-user-avatar__icon {

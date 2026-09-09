@@ -300,13 +300,13 @@
         height: 40px;
         padding: 0 6px;
         gap: 6px;
-        background-color: var(--blue-800);
+        background-color: var(--table-header-bg, var(--blue-800));
     }
 
     .max-table-fields-th {
         padding: 0;
         background-color: transparent;
-        color: var(--blue-200);
+        color: var(--table-header-text, var(--blue-200));
         font-family: Jost, sans-serif;
         font-weight: 400;
         flex-grow: 1;

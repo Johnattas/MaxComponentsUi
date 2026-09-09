@@ -350,4 +350,61 @@ describe('MaxApp', () => {
             expect(getMaxAppConfig().routeProviders).toBe('social.providers');
         });
     });
+
+    describe('gerenciamento de dark mode', () => {
+        beforeEach(() => {
+            document.documentElement.classList.remove('dark');
+        });
+
+        afterEach(() => {
+            document.documentElement.classList.remove('dark');
+        });
+
+        it('aplica a classe .dark quando o usuário já tem darkMode: true nas configurações ao carregar', async () => {
+            loadUser({ id: 1, name: 'Maria', settings: { darkMode: true } });
+
+            mountApp();
+            await new Promise((r) => setTimeout(r, 10));
+
+            expect(document.documentElement.classList.contains('dark')).toBe(true);
+        });
+
+        it('remove a classe .dark quando o usuário tem darkMode: false nas configurações ao carregar', async () => {
+            document.documentElement.classList.add('dark');
+            loadUser({ id: 1, name: 'Maria', settings: { darkMode: false } });
+
+            mountApp();
+            await new Promise((r) => setTimeout(r, 10));
+
+            expect(document.documentElement.classList.contains('dark')).toBe(false);
+        });
+
+        it('alterna o modo escuro ao receber toggleDarkMode e persiste na store', async () => {
+            const user = loadUser({ id: 1, name: 'Maria', settings: { darkMode: false } });
+            const saveSpy = vi.fn();
+            (user as any).save = saveSpy;
+
+            const wrapper = mountApp();
+            const layout = wrapper.findComponent(MaxPageLayout);
+
+            expect(document.documentElement.classList.contains('dark')).toBe(false);
+
+            // Primeiro clique: ativa
+            layout.vm.$emit('toggleDarkMode');
+            await wrapper.vm.$nextTick();
+
+            expect(document.documentElement.classList.contains('dark')).toBe(true);
+            expect(user.data?.settings?.darkMode).toBe(true);
+            expect(saveSpy).toHaveBeenCalledTimes(1);
+            expect(wrapper.emitted('toggleDarkMode')).toBeTruthy();
+
+            // Segundo clique: desativa
+            layout.vm.$emit('toggleDarkMode');
+            await wrapper.vm.$nextTick();
+
+            expect(document.documentElement.classList.contains('dark')).toBe(false);
+            expect(user.data?.settings?.darkMode).toBe(false);
+            expect(saveSpy).toHaveBeenCalledTimes(2);
+        });
+    });
 });

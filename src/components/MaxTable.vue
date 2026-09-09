@@ -97,12 +97,12 @@
                         display: flex;
                         padding: 0 6px !important;
                         gap: 6px;
-                        background-color: var(--blue-800) !important;
+                        background-color: var(--table-header-bg, var(--blue-800)) !important;
 
                         th {
                             padding: 0;
                             background-color: transparent !important;
-                            color: var(--blue-200) !important;
+                            color: var(--table-header-text, var(--blue-200)) !important;
                             position: relative;
                             font-weight: 400 !important;
                             flex-grow: 1;

@@ -293,7 +293,7 @@
             display: grid;
             place-items: center end;
             grid-template-rows: 1fr 1fr;
-            color: var(--background-0);
+            color: var(--layout-shell-text, #fff);
 
             .solar-company-text {
                 font-size: 0.9rem;
@@ -302,6 +302,7 @@
             .user-name-text {
                 font-size: 0.8rem;
                 font-weight: 200;
+                color: var(--layout-shell-text-muted, rgb(255 255 255 / 70%));
             }
         }
 
@@ -361,6 +362,10 @@
         background-color: var(--background-0);
         border-radius: 0.5rem;
         grid-template-columns: auto 1fr;
+
+        .max-icon-div {
+            color: currentcolor !important;
+        }
 
         &:hover {
             background-color: var(--background-100, #f1f5f9);

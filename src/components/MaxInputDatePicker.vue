@@ -637,7 +637,7 @@
                     }
 
                     &.is-selected {
-                        background: var(--primary-500, #3b82f6) !important;
+                        background: var(--max-primary-500, #00768E) !important;
                         color: #fff !important;
                         font-weight: 600;
                     }

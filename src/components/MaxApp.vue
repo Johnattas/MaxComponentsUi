@@ -30,7 +30,7 @@
                     @profile="emit('profile')"
                     @settings="emit('settings')"
                     @support="emit('support')"
-                    @toggle-dark-mode="emit('toggleDarkMode')"
+                    @toggle-dark-mode="handleToggleDarkMode"
                     @logout="emit('logout')"
                     @end-impersonate="emit('endImpersonate')"
                     @fab-click="emit('fabClick')"
@@ -183,6 +183,51 @@
         login.allow_phone = phone as boolean;
         login.allow_user_name = userName as boolean;
     }, { immediate: true });
+
+    /** Aplica ou remove a classe .dark no elemento raiz do documento. */
+    const applyDarkMode = (enabled: boolean): void => {
+        if (typeof document === 'undefined') return;
+        if (enabled) document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+
+    };
+
+    /**
+     * Alterna o modo escuro:
+     * 1. Atualiza a classe .dark no DOM (document.documentElement)
+     * 2. Atualiza a configuração reativa do usuário (user.data.settings.darkMode)
+     * 3. Dispara a persistência assíncrona se user.save() existir (@maxvue/max-pinia)
+     * 4. Emite o evento toggleDarkMode para compatibilidade com ouvintes externos
+     */
+    const handleToggleDarkMode = (): void => {
+        const currentDark = typeof document !== 'undefined'
+            ? document.documentElement.classList.contains('dark')
+            : Boolean(user.data?.settings?.darkMode);
+        const nextDark = !currentDark;
+
+        applyDarkMode(nextDark);
+
+        if (user.data) {
+            if (!user.data.settings || typeof user.data.settings !== 'object') user.data.settings = {};
+
+            user.data.settings.darkMode = nextDark;
+
+            if (typeof (user as any).save === 'function') (user as any).save();
+
+        }
+
+        emit('toggleDarkMode');
+    };
+
+    // Sincroniza a classe .dark com a preferência persistida do usuário ao carregar
+    watch(
+        () => [isLoaded.value, user.data?.settings?.darkMode],
+        ([loaded, darkModeSetting]) => {
+            if (loaded) applyDarkMode(Boolean(darkModeSetting));
+
+        },
+        { immediate: true }
+    );
 </script>
 
 <style lang="scss">

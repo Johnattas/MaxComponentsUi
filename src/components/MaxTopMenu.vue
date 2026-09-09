@@ -177,7 +177,8 @@
         width: 100%;
         height: 64px;
         grid-template-columns: auto 1fr;
-        color: var(--text-c, #fff);
+        background-color: var(--layout-shell-bg, #003048);
+        color: var(--layout-shell-text, #fff);
         display: grid !important;
         place-items: center end;
 
@@ -185,7 +186,7 @@
             place-items: center;
             grid-template-columns: 1fr !important;
             height: var(--top-menu-height, 60px);
-            background-color: var(--blue-850, #0f172a);
+            background-color: var(--layout-shell-bg, #003048);
             padding: 0 0.75rem;
             padding-left: max(0.75rem, env(safe-area-inset-left));
             padding-right: max(0.75rem, env(safe-area-inset-right));
@@ -224,7 +225,7 @@
             .mobile-header-title {
                 font-size: 0.95rem;
                 font-weight: 600;
-                color: var(--background-25, #fff);
+                color: var(--layout-shell-text, #fff);
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;

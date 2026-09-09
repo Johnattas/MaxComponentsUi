@@ -115,6 +115,7 @@
         height: 100dvh;
         box-sizing: border-box;
         z-index: 3;
+        background-color: var(--layout-shell-bg, #003048);
 
         &[screen='mobile'] {
             position: absolute;

@@ -227,8 +227,8 @@
             align-items: center;
             gap: 0.75rem;
             padding: 1.25rem 1rem;
-            background-color: var(--blue-850, #0f172a);
-            color: #fff;
+            background-color: var(--layout-shell-bg, #003048);
+            color: var(--layout-shell-text, #fff);
             cursor: pointer;
             flex-shrink: 0;
 
@@ -236,7 +236,7 @@
                 width: 44px;
                 height: 44px;
                 border-radius: 50%;
-                background-color: var(--blue-700, #1e293b);
+                background-color: #005F77;
                 display: grid;
                 place-items: center;
                 overflow: hidden;

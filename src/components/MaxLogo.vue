@@ -44,7 +44,7 @@
         }
 
         &[fill] {
-            background-color: var(--sky-950);
+            background-color: var(--layout-shell-bg, #003048);
         }
 
         &[rounded-3] {

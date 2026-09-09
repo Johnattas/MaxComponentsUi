@@ -728,7 +728,7 @@
     color: var(--background-700);
 
     &:hover {
-        background-color: var(--background-300);
+        background-color: var(--background-100);
     }
 
     &.is-focused {

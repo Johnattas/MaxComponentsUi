@@ -80,29 +80,30 @@
 
             .max-icon-div {
                 z-index: 1;
+                color: var(--blue-750) !important;
 
                 &:hover {
-                    color: var(--blue-750) !important;
+                    color: var(--blue-650) !important;
                 }
             }
 
             .curva {
                 display: block;
                 position: absolute;
-                fill: var(--blue-825);
+                fill: var(--background-50);
 
                 &.cima {
                     top: -20px;
                     right: 0;
                     transform: rotate(180deg);
-                    fill: var(--blue-825);
+                    fill: var(--background-50);
                 }
 
                 &.baixo {
                     right: 0;
                     bottom: -20px;
                     transform: rotate(90deg);
-                    fill: var(--blue-825);
+                    fill: var(--background-50);
                 }
 
                 &.baixo2 {
@@ -118,7 +119,7 @@
                 width: calc(100% - 5px);
                 height: 100%;
                 border-radius: 10px 0 0 10px;
-                background-color: var(--blue-825);
+                background-color: var(--background-50);
                 z-index: 0;
             }
         }

@@ -35,7 +35,7 @@
         box-sizing: border-box;
         border-radius: 1rem;
         grid-template-columns: 1fr;
-        background-color: var(--blue-825);
+        background-color: var(--background-50);
 
         &[screen='mobile'] {
             width: 100%;

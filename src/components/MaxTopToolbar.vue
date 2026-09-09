@@ -19,7 +19,7 @@
                             class="menu-item-content root"
                             @click="handleItemClick(item)"
                         >
-                            <MaxIconButton v-if="item.icon" :icon="item.icon" :size="item.icon_size" transparent />
+                            <MaxIconButton v-if="item.icon" :icon="item.icon" :size="item.icon_size" light transparent />
                             <div class="menu-item-labels">
                                 <span class="menu-item-label">{{ item.label }}</span>
                                 <span v-if="item.subLabel" class="menu-item-sublabel">{{ item.subLabel }}</span>
@@ -117,7 +117,7 @@
             padding: 0 !important;
             border: none !important;
             border-radius: 0 !important;
-            background-color: var(--blue-850) !important;
+            background-color: transparent !important;
             z-index: 1 !important;
 
             .p-menubar-root-list {
@@ -159,8 +159,12 @@
                             align-items: center;
                             justify-content: flex-start;
                             gap: 6px;
-                            transition: transform 0.3s ease-in-out;
-                            color: var(--background-700) !important;
+                            transition: transform 0.3s ease-in-out, color 0.2s ease;
+                            color: var(--layout-shell-text-muted, rgb(255 255 255 / 80%)) !important;
+
+                            &:hover {
+                                color: var(--layout-shell-text, #fff) !important;
+                            }
 
                             .menu-item-labels {
                                 display: flex;
