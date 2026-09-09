@@ -362,6 +362,25 @@
             border-radius: 0.75rem;
             padding: 20px;
             box-sizing: border-box;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+                display: none;
+            }
+
+            * {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+
+                &::-webkit-scrollbar {
+                    width: 0;
+                    height: 0;
+                    display: none;
+                }
+            }
 
             @media (width <= 768px) {
                 padding: 12px;
