@@ -346,7 +346,7 @@
             width: 20px;
             right: 8px;
             top: calc(50% + 1px);
-            color: var(--background-600);
+            color: var(--background-650);
             transform: translateY(-50%);
             z-index: 9;
             pointer-events: none;
@@ -366,7 +366,7 @@
             outline: none;
             background: transparent;
             font-size: 0.9rem;
-            color: var(--background-650);
+            color: var(--background-700);
             padding: 0 10px;
         }
     }
@@ -387,7 +387,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            color: var(--background-650);
+            color: var(--background-700);
         }
 
         .autocomplete-item-select-sub-label {
@@ -395,7 +395,7 @@
             place-items: center;
             font-size: 0.8rem;
             min-width: 15px;
-            color: var(--background-600);
+            color: var(--background-650);
         }
     }
 

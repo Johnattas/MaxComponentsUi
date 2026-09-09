@@ -50,14 +50,14 @@
             font-weight: 500;
             font-size: 1.2rem;
             padding: 0 !important;
-            color: var(--background-750);
+            color: var(--background-775);
         }
 
         .t2-main-text {
             font-size: 0.95rem;
             font-weight: 400;
             padding: 0 !important;
-            color: var(--background-700) !important;
+            color: var(--background-750) !important;
         }
 
         &.center {

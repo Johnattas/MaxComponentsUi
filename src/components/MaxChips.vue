@@ -408,7 +408,7 @@
                     align-items: center;
                     gap: 6px;
                     background-color: var(--background-200);
-                    color: var(--background-650);
+                    color: var(--background-700);
                     border-radius: 6px;
                     padding: 2px 8px;
                     font-size: 0.875rem;
@@ -430,7 +430,7 @@
                         display: inline-flex;
                         align-items: center;
                         justify-content: center;
-                        color: var(--background-600);
+                        color: var(--background-650);
                         border-radius: 50%;
                         line-height: 1;
                         transition: color 0.15s ease, transform 0.15s ease;
@@ -457,7 +457,7 @@
                         color: inherit;
 
                         &::placeholder {
-                            color: var(--background-600);
+                            color: var(--background-650);
                         }
 
                         &:disabled {

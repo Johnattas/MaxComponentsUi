@@ -131,7 +131,7 @@
         .line-numbers {
             padding: 10px 8px;
             background-color: var(--background-100, rgb(0 0 0 / 2%));
-            color: var(--background-600);
+            color: var(--background-650);
             text-align: right;
             min-width: 40px;
             overflow-y: hidden;

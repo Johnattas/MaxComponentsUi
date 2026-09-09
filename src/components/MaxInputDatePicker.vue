@@ -541,7 +541,7 @@
             outline: none;
             background: transparent;
             font-size: 0.9rem;
-            color: var(--background-650);
+            color: var(--background-700);
             padding: 0 10px;
             cursor: pointer;
         }
@@ -574,7 +574,7 @@
             .max-datepicker-title {
                 font-weight: 600;
                 font-size: 0.95rem;
-                color: var(--background-750);
+                color: var(--background-775);
             }
 
             .max-datepicker-nav-btn {
@@ -586,7 +586,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: var(--background-650);
+                color: var(--background-700);
 
                 &:hover {
                     background: var(--background-100, #f1f5f9);
@@ -602,7 +602,7 @@
                 text-align: center;
                 font-size: 0.75rem;
                 font-weight: 600;
-                color: var(--background-600);
+                color: var(--background-650);
                 margin-bottom: 6px;
             }
 
@@ -618,7 +618,7 @@
                     border-radius: 50%;
                     cursor: pointer;
                     font-size: 0.85rem;
-                    color: var(--background-650);
+                    color: var(--background-700);
                     display: flex;
                     align-items: center;
                     justify-content: center;
