@@ -1,5 +1,5 @@
 <template>
-    <div ref="rootRef" class="input-upload-file-main-div" :class="{ 'is-dragover': isOverDropZone }" v-bind="attrs">
+    <div ref="rootRef" class="max-input-file-upload input-upload-file-main-div" :class="{ 'is-dragover': isOverDropZone }" v-bind="attrs">
         <input
             ref="nativeInputRef"
             type="file"
@@ -309,7 +309,7 @@
                 &[disabled='true'] {
                     .label-file-upload {
                         font-weight: 400;
-                        color: var(--background-400);
+                        color: var(--background-650);
                         cursor: not-allowed;
                     }
                 }
@@ -319,7 +319,7 @@
                     display: grid;
                     place-items: center start !important;
                     height: auto;
-                    color: var(--background-600);
+                    color: var(--background-700);
                     cursor: pointer;
 
                     &:hover {
@@ -338,7 +338,7 @@
                 width: 100%;
                 font-size: 0.9rem;
                 font-weight: 300 !important;
-                color: var(--text-c);
+                color: var(--background-700);
                 cursor: pointer;
                 border: none !important;
                 position: absolute;
@@ -365,7 +365,7 @@
                 padding: 0 5px;
 
                 .icon-div {
-                    color: var(--background-600) !important;
+                    color: var(--background-650) !important;
                 }
 
                 &:hover {

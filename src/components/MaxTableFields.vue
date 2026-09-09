@@ -237,7 +237,7 @@
         if (typeof data === 'object' && !Array.isArray(data)) {
             const resolved: Record<string, any> = {};
             for (const key in data) resolved[key] = typeof data[key] === 'string'
-                ? getFieldValue(row, data[key]) ?? data[key]
+                ? (data[key].includes('.') ? (getFieldValue(row, data[key]) ?? null) : (getFieldValue(row, data[key]) ?? data[key]))
                 : data[key];
 
             return resolved;
@@ -399,7 +399,7 @@
     .max-table-fields-empty-cell {
         padding: 24px;
         text-align: center;
-        color: var(--text-400);
+        color: var(--background-650);
         font-style: italic;
     }
 

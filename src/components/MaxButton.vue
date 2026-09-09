@@ -241,7 +241,7 @@
         }
 
         &.p-button-secondary, &.max-button-secondary {
-            color: var(--background-500) !important;
+            color: var(--background-700) !important;
         }
 
         &.p-button-success, &.max-button-success {
@@ -267,7 +267,7 @@
         }
 
         &.p-button-contrast, &.max-button-contrast {
-            color: var(--background-900) !important;
+            color: var(--background-775) !important;
         }
 
         .content-button-icon {

@@ -1,5 +1,5 @@
 <template>
-    <div :class="`input-project-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" ref="drop_zone_ref" relative>
+    <div :class="`max-input-file-project input-project-div ${isOverDropZone ? 'in-drop' : 'not-in-drop'}`" ref="drop_zone_ref" relative>
         <MaxIconButton class="open-files-btn"  :hoverScale="1.06" @click="() => open()">
             <div class="open-files" pointer >
                 <div class="instruction">
@@ -210,14 +210,14 @@
             place-items: center;
             text-align: center;
             gap: 5px;
-            color: var(--background-600);
+            color: var(--background-650);
 
             .instruction {
                 text-align: center;
             }
 
             .icon-div {
-                color: var(--background-600);
+                color: var(--background-650);
             }
         }
 
@@ -226,10 +226,10 @@
                 outline: 3px dashed var(--background-600);
 
                 .open-files {
-                    color: var(--background-750);
+                    color: var(--background-775);
 
                     .icon-div {
-                        color: var(--background-750);
+                        color: var(--background-775);
                     }
                 }
             }
@@ -251,7 +251,7 @@
                 place-items: center start;
                 gap: 0.5rem;
                 height: 30px;
-                color: var(--background-650);
+                color: var(--background-700);
                 font-size: 0.9rem;
             }
         }

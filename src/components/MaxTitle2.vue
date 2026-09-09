@@ -48,13 +48,13 @@
             font-weight: 500;
             text-transform: uppercase;
             font-size: 0.9rem;
-            color: var(--background-750);
+            color: var(--background-775);
         }
 
         .text-h2 {
             font-weight: 300;
             font-size: 0.85rem;
-            color: var(--background-675);
+            color: var(--background-750);
         }
     }
 </style>

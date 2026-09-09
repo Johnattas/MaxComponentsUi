@@ -1,5 +1,5 @@
 <template>
-    <div class="max-auth-page" s100 grid-center @keyup.enter="onEnter">
+    <div class="max-auth-card max-auth-page" s100 grid-center @keyup.enter="onEnter">
         <div class="max-auth-card">
             <slot name="header" :step="codeSent ? 'code' : 'phone'" :mode="mode" :phone="phone">
                 <MaxTitle2
@@ -625,13 +625,13 @@
             gap: 0.5rem;
             cursor: pointer;
             font-size: 0.82rem;
-            color: var(--background-600);
+            color: var(--background-650);
             user-select: none;
 
             input[type='checkbox'] {
                 width: 16px;
                 height: 16px;
-                accent-color: var(--background-650);
+                accent-color: var(--background-700);
                 cursor: pointer;
             }
 
@@ -647,7 +647,7 @@
         }
 
         .max-auth-link {
-            color: var(--background-650);
+            color: var(--background-700);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
@@ -655,7 +655,7 @@
 
             &:hover {
                 text-decoration: underline;
-                color: var(--background-750);
+                color: var(--background-775);
             }
 
             &--muted {
@@ -665,10 +665,10 @@
         }
 
         .max-auth-register {
-            color: var(--background-500);
+            color: var(--background-650);
 
             .text-secondary {
-                color: var(--background-500);
+                color: var(--background-650);
             }
         }
 
@@ -676,7 +676,7 @@
             display: flex;
             align-items: center;
             text-align: center;
-            color: var(--background-400);
+            color: var(--background-650);
             margin: 1.5rem 0 1rem;
 
             .line {
@@ -689,7 +689,7 @@
                 font-size: 0.7rem;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
-                color: var(--background-400);
+                color: var(--background-650);
                 padding: 0 0.5rem;
             }
         }

@@ -1,5 +1,5 @@
 <template>
-    <ul class="p-menubar-submenu" role="menu" @mouseenter="emit('keep-open')" @mouseleave="emit('schedule-close')">
+    <ul class="max-top-toolbar-submenu p-menubar-submenu" role="menu" @mouseenter="emit('keep-open')" @mouseleave="emit('schedule-close')">
         <li
             v-for="(item, index) in props.items"
             :key="index"

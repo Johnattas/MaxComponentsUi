@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="{...props}" class="max-input-text-list-div">
+    <InputBase v-bind="{...props}" class="max-input-text-list max-input-text-list-div">
         <div class="max-code-editor">
             <div class="line-numbers" ref="lineNumbersRef">
                 <div v-for="n in lineCount" :key="n" class="line-number">{{ n }}</div>
@@ -131,7 +131,7 @@
         .line-numbers {
             padding: 10px 8px;
             background-color: var(--background-100, rgb(0 0 0 / 2%));
-            color: var(--background-400, #9ca3af);
+            color: var(--background-650);
             text-align: right;
             min-width: 40px;
             overflow-y: hidden;

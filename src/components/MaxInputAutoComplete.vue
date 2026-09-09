@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="props" class="if" :value="temp_value" :done="isDone" :error="props.error" :caution="caution">
+    <InputBase v-bind="props" class="max-input-auto-complete if" :value="temp_value" :done="isDone" :error="props.error" :caution="caution">
         <div ref="ac" class="p-autocomplete" :class="{ 'p-disabled': props.disabled }">
             <input
                 ref="inputEl"
@@ -21,8 +21,8 @@
             />
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen && filtered_values.length > 0" class="max-autocomplete-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen && filtered_values.length > 0">
+            <div class="max-autocomplete-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-autocomplete-overlay"
@@ -346,7 +346,7 @@
             width: 20px;
             right: 8px;
             top: calc(50% + 1px);
-            color: var(--background-500);
+            color: var(--background-650);
             transform: translateY(-50%);
             z-index: 9;
             pointer-events: none;
@@ -366,7 +366,7 @@
             outline: none;
             background: transparent;
             font-size: 0.9rem;
-            color: var(--text-c, #334155);
+            color: var(--background-700);
             padding: 0 10px;
         }
     }
@@ -387,6 +387,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            color: var(--background-700);
         }
 
         .autocomplete-item-select-sub-label {
@@ -394,7 +395,7 @@
             place-items: center;
             font-size: 0.8rem;
             min-width: 15px;
-            color: var(--background-500);
+            color: var(--background-650);
         }
     }
 

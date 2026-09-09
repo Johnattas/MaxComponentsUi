@@ -1,5 +1,5 @@
 <template>
-    <div class="radio-button-input-main-div" @click="onClick">
+    <div class="max-input-radio radio-button-input-main-div" @click="onClick">
         <input
             ref="inputRef"
             type="radio"

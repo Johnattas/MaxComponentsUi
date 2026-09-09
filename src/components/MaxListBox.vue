@@ -1,5 +1,5 @@
 <template>
-    <div class="max-listbox" :class="{ 'is-disabled': props.disabled, 'two-lines': props.twoLines }" :style="rootStyle">
+    <div class="max-list-box max-listbox" :class="{ 'is-disabled': props.disabled, 'two-lines': props.twoLines }" :style="rootStyle">
         <div v-if="$slots.header || props.title" class="max-listbox-header">
             <slot name="header">
                 <span class="max-listbox-title">{{ props.title }}</span>
@@ -645,7 +645,7 @@
 
 .max-listbox-title {
     font-weight: 600;
-    color: var(--background-750);
+    color: var(--background-775);
 }
 
 .max-listbox-filter {
@@ -660,12 +660,12 @@
     border: 1px solid var(--background-300);
     border-radius: 4px;
     background-color: var(--background-0);
-    color: var(--background-750);
+    color: var(--background-700);
     font-size: 0.9rem;
     outline: none;
 
     &::placeholder {
-        color: var(--background-600);
+        color: var(--background-650);
     }
 
     &:focus {
@@ -725,7 +725,7 @@
     // totalHeight/offsetY/startIndex.
     min-height: v-bind('`${props.itemHeight}px`');
     cursor: pointer;
-    color: var(--background-750);
+    color: var(--background-700);
 
     &:hover {
         background-color: var(--background-300);
@@ -790,7 +790,7 @@
 }
 
 .max-listbox-item-sublabel {
-    color: var(--background-600);
+    color: var(--background-650);
     font-size: 0.85rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -824,7 +824,7 @@
     justify-content: center;
     gap: 8px;
     padding: 14px 12px;
-    color: var(--background-600);
+    color: var(--background-650);
     font-size: 0.9rem;
 }
 

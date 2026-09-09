@@ -19,8 +19,8 @@
         </div>
     </InputBase>
 
-    <Teleport to="body">
-        <div v-if="visible" class="max-icon-picker-drawer-backdrop" @click="visible = false">
+    <Teleport to="body" v-if="visible">
+        <div class="max-icon-picker-drawer-backdrop" @click="visible = false">
             <div class="max-icon-picker-drawer p-drawer-bottom" @click.stop>
                 <div class="p-drawer-header">
                     <span class="p-drawer-title">Escolha um ícone</span>
@@ -379,7 +379,7 @@
         .p-drawer-title {
             font-weight: 600;
             font-size: 1.1rem;
-            color: var(--text-c, #334155);
+            color: var(--background-775);
         }
 
         .p-drawer-close-button {
@@ -391,11 +391,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--background-500, #94a3b8);
+            color: var(--background-700);
 
             &:hover {
                 background: var(--background-100, #f1f5f9);
-                color: var(--text-c, #334155);
+                color: var(--background-775);
             }
         }
     }
@@ -419,6 +419,11 @@
             border-radius: 8px;
             outline: none;
             font-size: 0.9rem;
+            color: var(--background-700);
+
+            &::placeholder {
+                color: var(--background-650);
+            }
         }
     }
 
@@ -427,7 +432,7 @@
         align-items: center;
         justify-content: center;
         height: calc(90dvh - 140px);
-        color: var(--background-500);
+        color: var(--background-650);
         font-size: 0.9rem;
         gap: 0.5rem;
     }

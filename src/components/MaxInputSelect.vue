@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="{ ...props, ...attrsWithoutModelProps }" class="select_input_div">
+    <InputBase v-bind="{ ...props, ...attrsWithoutModelProps }" class="max-input-select select_input_div">
         <div v-if="showPlaceholder" class="placeholder-select">
             {{ placeholderText }}
         </div>
@@ -39,8 +39,8 @@
             </div>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-select-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-select-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-select-overlay"
@@ -140,11 +140,11 @@
     </InputBase>
 </template>
 
-/**
- * Componente de seleção (dropdown).
- * Suporta opções simples, agrupadas e carregamento dinâmico via callback.
- */
 <script setup lang="ts">
+    /**
+     * Componente de seleção (dropdown).
+     * Suporta opções simples, agrupadas e carregamento dinâmico via callback.
+     */
     import { ref, computed, watch, useAttrs, onBeforeUnmount, nextTick, Ref } from 'vue';
     import InputBase from './InputBase.vue';
     import MaxIcon from './MaxIcon.vue';
@@ -484,7 +484,7 @@
 
     .placeholder-select {
         position: absolute;
-        color: var(--background-600);
+        color: var(--background-650);
         font-size: 0.9rem;
     }
 }
@@ -547,7 +547,7 @@
 
 .p-select-empty-message {
     padding: 8px 12px;
-    color: var(--background-500, #64748b);
+    color: var(--background-650);
     font-size: 0.85rem;
 }
 
@@ -555,7 +555,7 @@
     font-weight: 600;
     padding: 6px 10px;
     font-size: 0.8rem;
-    color: var(--background-500, #64748b);
+    color: var(--background-750);
     background: var(--background-50, #f8fafc);
 }
 
@@ -567,7 +567,7 @@
     box-sizing: border-box;
     cursor: pointer;
     font-size: 0.85rem;
-    color: var(--text-c);
+    color: var(--background-700);
 
     &:hover {
         background-color: var(--background-100, #f1f5f9) !important;
@@ -607,7 +607,7 @@
 
     .labelz,
     .subLabel {
-        color: var(--background-650);
+        color: var(--background-700);
     }
 
     .category {
@@ -637,17 +637,17 @@
     gap: 10px;
 
     .icon-div {
-        color: var(--background-650) !important;
+        color: var(--background-700) !important;
     }
 
     &:hover {
         .icon-div {
-            color: var(--background-650) !important;
+            color: var(--background-700) !important;
         }
     }
 
     .subLabel {
-        color: var(--background-600);
+        color: var(--background-650);
         padding-left: 1rem;
         text-align: right;
         width: 100%;
@@ -657,7 +657,7 @@
     .labelz {
         display: grid;
         place-items: center;
-        color: var(--background-750);
+        color: var(--background-775);
     }
 
     img {
@@ -671,7 +671,7 @@
     place-items: center;
 
     .value-text {
-        color: var(--background-750);
+        color: var(--background-775);
     }
 }
 

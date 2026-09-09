@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="{...props}" class="input-text-area-main-div">
+    <InputBase v-bind="{...props}" class="max-input-text-area input-text-area-main-div">
         <textarea
             ref="textAreaEl"
             class="max-textarea"

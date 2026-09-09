@@ -1,6 +1,6 @@
 <template>
     <div
-        class="user-section"
+        class="max-user-section user-section"
         :class="{ 'only-avatar': isCompact }"
         :screen="props.screen"
         ref="root_el"
@@ -35,8 +35,8 @@
             </div>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-user-section-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-user-section-backdrop" @click="hide">
                 <div
                     ref="menuEl"
                     id="overlay_tmenu"
@@ -357,14 +357,14 @@
         height: 100%;
         padding: 8px;
         font-size: 0.9rem;
-        color: var(--text-c);
+        color: var(--background-700);
         background-color: var(--background-0);
         border-radius: 0.5rem;
         grid-template-columns: auto 1fr;
 
         &:hover {
             background-color: var(--background-100, #f1f5f9);
-            color: var(--text-c);
+            color: var(--background-775);
             cursor: pointer;
         }
     }
@@ -397,7 +397,7 @@
             height: 100%;
             padding: 0 8px;
             font-size: 0.9rem;
-            color: var(--background-650);
+            color: var(--background-700);
             background-color: var(--background-0);
 
             .icon-div {

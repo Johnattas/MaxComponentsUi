@@ -6,8 +6,8 @@
             </slot>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-popover-menu-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-popover-menu-backdrop" @click="hide">
                 <div
                     ref="menuEl"
                     id="overlay_menu"
@@ -107,7 +107,7 @@
     const position = computed(() => {
         const targetX = x.value;
         const targetY = y.value;
-        const targetW = width_btn.value;
+        const _targetW = width_btn.value;
         const targetH = height_btn.value;
 
         let top = targetY + targetH + 4;

@@ -1,7 +1,7 @@
 <template>
     <InputBase
         v-bind="props"
-        class="max-input-otp-base"
+        class="max-input-otp max-input-otp-base"
         no-border
         text-center
         :label="props.label"
@@ -414,7 +414,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 4px;
-    color: var(--background-400);
+    color: var(--background-650);
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1;
@@ -426,7 +426,7 @@
     border-radius: 8px;
     border: 1px solid var(--background-300);
     background-color: var(--background-0);
-    color: var(--background-700);
+    color: var(--background-750);
     font-size: 1.35rem;
     font-weight: 600;
     text-align: center;
@@ -437,7 +437,7 @@
     caret-color: var(--max-primary-500);
 
     &::placeholder {
-        color: var(--background-400);
+        color: var(--background-650);
         opacity: 0.5;
     }
 
@@ -457,7 +457,7 @@
 
     &:disabled {
         background-color: var(--background-100);
-        color: var(--background-400);
+        color: var(--background-650);
         cursor: not-allowed;
         border-color: var(--background-200);
     }

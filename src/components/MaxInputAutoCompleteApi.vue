@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="props" :done="isDone" :error="props.error" :caution="props.caution">
+    <InputBase v-bind="props" :done="isDone" :error="props.error" :caution="props.caution" class="max-input-auto-complete-api">
         <div ref="ac" class="p-autocomplete" :class="{ 'p-disabled': props.disabled }">
             <input
                 ref="inputEl"
@@ -19,8 +19,8 @@
             />
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen && filtered_values.length > 0" class="max-autocomplete-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen && filtered_values.length > 0">
+            <div class="max-autocomplete-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-autocomplete-overlay"
@@ -59,7 +59,7 @@
      * Componente Autocomplete que busca sugestões de uma API.
      * Integra-se com as rotas do backend Max para busca dinâmica.
      */
-    import { hasContent, toSearchableString, getCachedApiIDB, keyExists, isBlank, size, isEqual, useElementBounding, useElementSize, useWindowSize } from '@maxvue/max-use';
+    import { hasContent, toSearchableString, getCachedApiIDB, isBlank, size, isEqual, useElementBounding, useElementSize, useWindowSize } from '@maxvue/max-use';
     import { getOverlayWidth, getOverlayLeft } from '../helpers/useOverlayWidth';
     import type { Ref } from 'vue';
     import { ref, computed, watch, onBeforeUnmount } from 'vue';
@@ -149,11 +149,7 @@
     watch(() => props.data, (newValue, oldValue) => {
         if (isBlank(props.data) && isBlank(newValue) || isEqual(newValue, oldValue)) return;
 
-        const data_sent = keyExists(['files', 'file'], temp_value.value) ? { ...temp_value.value } : temp_value.value;
-        if (keyExists(['files', 'file'], temp_value.value)) {
-            data_sent['files'] = [];
-            data_sent['file'] = [];
-        }
+        const input_value = typeof temp_value.value === 'string' ? temp_value.value : '';
 
         const applyList = (res: any) => {
             if (isBlank(res) || size(res) === 0) return;
@@ -161,7 +157,7 @@
             search();
         };
 
-        getCachedApiIDB(props.route, { ...(props.data ?? {}), input_value: data_sent }, null, undefined, applyList).then(applyList);
+        getCachedApiIDB(props.route, { ...(props.data ?? {}), input_value }, null, undefined, applyList).then(applyList);
         return;
     }, { deep: true, immediate: true });
 
@@ -278,7 +274,7 @@
         outline: none;
         background: transparent;
         font-size: 0.9rem;
-        color: var(--text-c, #334155);
+        color: var(--background-700);
         padding: 0 10px;
     }
 }
@@ -332,6 +328,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        color: var(--background-700);
     }
 
     .autocomplete-item-select-sub-label {
@@ -339,7 +336,7 @@
         place-items: center;
         font-size: 0.9em;
         min-width: 15px;
-        color: var(--background-500);
+        color: var(--background-650);
     }
 }
 </style>

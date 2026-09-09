@@ -1,5 +1,5 @@
 <template>
-    <div class="container-app-mobile" v-bind="attrs">
+    <div class="max-page-mobile-layout container-app-mobile" v-bind="attrs">
         <MaxTopMenu
             v-bind="attrs"
             screen="mobile"

@@ -1,5 +1,5 @@
 <template>
-    <div class="max-tag-list" v-bind="attrs">
+    <div class="max-tags-list max-tag-list" v-bind="attrs">
         <div v-for="item in items_array" :key="item.value ?? item.id ?? item.name">
             <MaxTagSelect flex :modelValue="item.value" :options="options_array" no-dropdown uppercase @update:modelValue="(val: any) => replaceItem(item, val)">
                 <template #btn-right>
@@ -87,7 +87,7 @@
         let text = contrastColor(background);
         if (color_string === 'unset' && !is_value) {
             background = hover ? 'rgba(0,0,0, 0.1)' : 'transparent';
-            text = hover ? 'var(--background-600)' : 'var(--background-650)';
+            text = hover ? 'var(--background-775)' : 'var(--background-700)';
         }
 
         return {

@@ -1,5 +1,5 @@
 <template>
-    <div :class="`max-check-box ${!label ? 'no-label' : ''}`" v-bind="$attrs">
+    <div :class="`max-input-checkbox max-check-box ${!label ? 'no-label' : ''}`" v-bind="$attrs">
         <input
             :id="id"
             v-model="temp_value"

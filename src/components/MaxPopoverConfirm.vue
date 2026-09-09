@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <TransitionFade>
-            <div class="background-popover-confirm" @click.stop="confirm_store.hide" v-if="confirm_store.show">
+            <div class="max-popover-confirm background-popover-confirm" @click.stop="confirm_store.hide" v-if="confirm_store.show">
                 <div
                     class="max-icon-confirm-dialog"
                     ref="el"
@@ -113,6 +113,7 @@
     min-width: 300px;
     min-height: 60px;
     background-color: var(--background-0);
+    color: var(--background-700);
     z-index: 2;
     border: 1px solid var(--surface-border);
 

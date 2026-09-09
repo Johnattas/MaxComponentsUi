@@ -1,6 +1,7 @@
 <template>
     <!-- Layout dedicado para Mobile (inspirado no AgenteDeBolso) -->
     <MaxPageMobileLayout
+        class="max-page-layout"
         v-if="isMobile"
         v-bind="attrs"
         :add-items="props.addItems"
@@ -25,7 +26,7 @@
     </MaxPageMobileLayout>
 
     <!-- Layout padrão para Desktop -->
-    <MaxContainerApp v-else v-bind="attrs">
+    <MaxContainerApp class="max-page-layout" v-else v-bind="attrs">
         <MaxTopMenu
             v-bind="attrs"
             :add-items="props.addItems"

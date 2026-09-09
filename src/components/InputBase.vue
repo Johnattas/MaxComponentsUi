@@ -1,5 +1,5 @@
 <template>
-    <div class="max-input-main-div" :class="`${props.float !== undefined ? 'float' : ''} ${done ? 'done' : ''} ${!noStatus && caution ? 'caution' : ''} ${textCenter ? 'text-center' : ''} ${textRight ? 'text-right' : ''} ${props.class ? props.class : ''} ${!noStatus &&  isError ? 'error' : ''} ${inLine ? 'in-line' : ''}`">
+    <div class="max-input-base max-input-main-div" :class="`${props.float !== undefined ? 'float' : ''} ${done ? 'done' : ''} ${!noStatus && caution ? 'caution' : ''} ${textCenter ? 'text-center' : ''} ${textRight ? 'text-right' : ''} ${props.class ? props.class : ''} ${!noStatus &&  isError ? 'error' : ''} ${inLine ? 'in-line' : ''}`">
         <!-- INPUT LABEL -->
         <!--
             `for` aponta para `input_id`, o id exposto via slot prop `inputId`.
@@ -203,7 +203,7 @@
         left: 20px;
         padding: 0 5px !important;
         font-size: 0.75rem;
-        color: var(--background-650) !important;
+        color: var(--background-750) !important;
         height: 0.75rem;
         z-index: 1;
 
@@ -515,7 +515,7 @@
 
     input {
         &::placeholder {
-            color: var(--background-625);
+            color: var(--background-650);
         }
     }
 
@@ -540,7 +540,7 @@
         }
 
         input, span, select, .p-select-label, .p-inputtext, .value-div, .value-text {
-            color: var(--background-650) !important;
+            color: var(--background-700) !important;
         }
 
         // O select aninha .p-select > .p-select-label > .value-div > .value-text; sem isto
@@ -555,7 +555,7 @@
             font-size: 12px;
             font-weight: 500;
             background-color: transparent !important;
-            color: var(--background-650);
+            color: var(--background-700);
             text-align: left !important;
             width: fit-content !important;
             padding: 0 !important;
@@ -619,7 +619,7 @@
 
     &[disabled] {
         background: var(--background-75) !important;
-        color: var(--background-400) !important;
+        color: var(--background-650) !important;
     }
 }
 
@@ -627,14 +627,14 @@
     background-color: unset !important;
 
     input, span, .p-floatlabel .p-select-label, .p-inputtext {
-        color: var(--background-575) !important;
+        color: var(--background-650) !important;
     }
 }
 
 .p-inputtext[disabled] {
     font-size: 12px;
     font-weight: 500;
-    color: var(--background-575) !important;
+    color: var(--background-650) !important;
 }
 
 

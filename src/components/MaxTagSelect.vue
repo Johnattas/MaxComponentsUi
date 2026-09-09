@@ -1,5 +1,5 @@
 <template>
-    <InputBase v-bind="{ ...props, ...attrs }" class="max-select-tag" input-click-auto no-dropdown>
+    <InputBase v-bind="{ ...props, ...attrs }" class="max-tag-select max-select-tag" input-click-auto no-dropdown>
         <div v-if="showPlaceholder" class="tab-placeholder-select">
             {{ placeholderText }}
         </div>
@@ -46,8 +46,8 @@
             </div>
         </div>
 
-        <Teleport to="body">
-            <div v-if="isOpen" class="max-select-tag-backdrop" @click="hide">
+        <Teleport to="body" v-if="isOpen">
+            <div class="max-select-tag-backdrop" @click="hide">
                 <div
                     ref="overlayEl"
                     class="p-select-overlay"
@@ -214,7 +214,7 @@
         let text = contrastColor(background);
         if (color_string === 'unset' && !is_value) {
             background = hover ? 'rgba(0,0,0, 0.1)' : 'transparent';
-            text = hover ? 'var(--background-600)' : 'var(--background-650)';
+            text = hover ? 'var(--background-775)' : 'var(--background-700)';
         }
 
         return {

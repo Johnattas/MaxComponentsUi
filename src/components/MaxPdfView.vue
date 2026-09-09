@@ -1,5 +1,5 @@
 <template>
-    <div v-if="is_open">
+    <div v-if="is_open" class="max-pdf-view">
         <div
             class="viewPDF"
             ref="el"

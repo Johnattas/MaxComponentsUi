@@ -1,5 +1,5 @@
 <template>
-    <div class="map-main-div" s24 v-if="coordinates.latitude !== 0 && coordinates.longitude !== 0">
+    <div class="max-maps map-main-div" s24 v-if="coordinates.latitude !== 0 && coordinates.longitude !== 0">
         <div class="mapa" ref="mapDiv" v-if="effectiveApiKey">
             <GoogleMap :api-key="effectiveApiKey" style="width: 100%; height: 100%;" :center="center" :zoom="zoom" ref="mapRef" :mapTypeId="props.mapTypeId" :mapId="effectiveMapId" v-if="isMounted">
                 <AdvancedMarker :options="marker_options" :pin-options="pinOptions" ref="markerRef" @dragend="onDrag" />
@@ -133,18 +133,18 @@
 
                 i {
                     font-size: 3rem;
-                    color: var(--text-c);
+                    color: var(--background-700);
                 }
 
                 .t1 {
                     font-weight: 400;
-                    color: var(--text-c);
+                    color: var(--background-700);
                     font-size: 0.9rem;
                 }
 
                 .t2 {
                     font-weight: 300;
-                    color: var(--text-d);
+                    color: var(--background-650);
                     font-size: 0.85rem;
                 }
             }
