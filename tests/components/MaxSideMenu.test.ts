@@ -18,11 +18,13 @@ vi.mock('vue-router', async (importOriginal) => ({
 // O useRefCachedApi dispara requisição real; aqui só interessa a ref devolvida.
 const menusRef = ref<any>(null);
 const getRoute = vi.fn<(name: string) => string | null>(() => null);
+const mockGoToRoute = vi.fn();
 
 vi.mock('@maxvue/max-use', async (importOriginal) => ({
     ...(await importOriginal<Record<string, any>>()),
     useRefCachedApi: () => menusRef,
-    getRoute: (...args: [string]) => getRoute(...args)
+    getRoute: (...args: [string]) => getRoute(...args),
+    goToRoute: (...args: any[]) => mockGoToRoute(...args)
 }));
 
 import MaxSideMenu from '../../src/components/MaxSideMenu.vue';
@@ -329,5 +331,37 @@ describe('MaxMenuVerticalItem', () => {
         expect(iconButton.exists()).toBe(true);
         expect(iconButton.props('light')).toBe(true);
         expect(iconButton.props('color')).toBeUndefined();
+    });
+
+    it('mantém item ativo quando a rota atual é uma subpágina mapeada (ex: commercial_proposal_detail para commercial_proposals)', () => {
+        route.name = 'commercial_proposal_detail';
+
+        const wrapper = mountWithPinia(MaxMenuVerticalItem, {
+            props: { items: [item({ icon: 'heroicons:document-currency-dollar-solid', page_component: 'commercial_proposals' })] }
+        });
+
+        expect(wrapper.find('.item_menu').classes()).toContain('active');
+    });
+
+    it('mantém item ativo quando a rota atual corresponde a item.details.matches customizado', () => {
+        route.name = 'custom_subpage';
+
+        const wrapper = mountWithPinia(MaxMenuVerticalItem, {
+            props: { items: [item({ icon: 'mdi:home', page_component: 'custom_parent', matches: ['custom_subpage'] })] }
+        });
+
+        expect(wrapper.find('.item_menu').classes()).toContain('active');
+    });
+
+    it('dispara goToRoute ao clicar na div do item', async () => {
+        mockGoToRoute.mockReset();
+
+        const wrapper = mountWithPinia(MaxMenuVerticalItem, {
+            props: { items: [item({ icon: 'mdi:home', page_component: 'projects', route: 'solar_company_projects' })] }
+        });
+
+        await wrapper.find('.item_menu').trigger('click');
+
+        expect(mockGoToRoute).toHaveBeenCalledWith('solar_company_projects');
     });
 });

@@ -5,7 +5,10 @@
         v-tooltip.right="item.details.tooltip"
         :class="`max-menu-vertical-item item_menu ${isActive(item) ? 'active' : ''}`"
         :page_component="item.details.page_component"
-        @click="clearSearch"
+        role="link"
+        tabindex="0"
+        @click="(event) => handleItemClick(item, event)"
+        @keydown.enter="(event) => handleItemClick(item, event)"
     >
         <MaxIconButton
             :i="item.details.icon ?? undefined"
@@ -24,7 +27,9 @@
 </template>
 
 <script setup lang="ts">
-    import { snakeCase } from '@maxvue/max-use';
+    import { computed } from 'vue';
+    import { useRoute } from 'vue-router';
+    import { snakeCase, goToRoute } from '@maxvue/max-use';
     import MaxIconButton from './MaxIconButton.vue';
     import { useSystemStore } from '../stores/useSystem.Store';
     import { useSearchBarStore } from '../stores/useSearchBar.Store';
@@ -40,12 +45,52 @@
     });
 
     const system = useSystemStore();
+    const route = useRoute();
 
-    /** Marca o item cujo componente de página corresponde à rota atual. */
-    const isActive = (item: SideMenuItem): boolean => snakeCase(item.details.page_component ?? '') === system.page;
+    /** Mapa de rotas filhas/subpáginas que mantêm o menu pai ativo. */
+    const ROUTE_MATCHES: Record<string, string[]> = {
+        commercial_proposals: ['commercial_proposal_detail', 'proposals', 'proposal_public_view'],
+        proposals: ['commercial_proposals', 'commercial_proposal_detail', 'proposal_public_view'],
+        solar_company_projects: ['integrador_client_show', 'integrador_projects', 'integrador_inspections', 'integrador_approved', 'integrador_finished', 'integrador_clients'],
+        board: ['project', 'planner_card']
+    };
 
-    const clearSearch = (): void => {
+    /** Nome da página/rota atual, priorizando o useRoute reativo local com fallback na store. */
+    const currentPage = computed<string>(() => {
+        return String(route?.name || system.page || '');
+    });
+
+    /** Marca o item cujo componente de página ou rotas filhas correspondem à rota atual. */
+    const isActive = (item: SideMenuItem): boolean => {
+        const current = currentPage.value;
+        if (!current) return false;
+
+        const pageComponent = snakeCase(item.details.page_component ?? '');
+        const itemRoute = snakeCase(item.details.route ?? '');
+
+        // 1. Correspondência exata pelo page_component ou pela route
+        if (pageComponent === current || itemRoute === current) return true;
+
+        // 2. Correspondência declarada explicitamente no item (matches)
+        const customMatches: string[] = (item.details as any)?.matches || (item as any)?.matches || [];
+        if (customMatches.includes(current)) return true;
+
+        // 3. Correspondência pelo mapa padrão de rotas filhas
+        const knownMatches = ROUTE_MATCHES[pageComponent] || ROUTE_MATCHES[itemRoute];
+        if (knownMatches?.includes(current)) return true;
+
+        return false;
+    };
+
+    const handleItemClick = (item: SideMenuItem, event?: MouseEvent | KeyboardEvent): void => {
         useSearchBarStore().input_value = '';
+
+        // Se o clique originou do botão de ícone interno, deixa o MaxIconButton gerenciar a navegação
+        const target = event?.target as HTMLElement | null;
+        if (target?.closest('.max-icon-button')) return;
+
+        const targetRoute = item.details.route?.trim();
+        if (targetRoute) goToRoute(targetRoute);
     };
 </script>
 
