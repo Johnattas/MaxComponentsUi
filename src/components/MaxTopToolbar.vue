@@ -124,8 +124,8 @@
                 margin: 0;
                 padding: 0;
 
-                // TODOS ITEMS
-                .p-menubar-item {
+                // ITENS DA BARRA RAIZ (PRIMEIRA CAMADA)
+                > .p-menubar-item {
                     position: relative;
 
                     &:has(.divider-space) {
@@ -199,72 +199,20 @@
                         }
                     }
 
-                    :deep(.p-menubar-submenu) {
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
-                        left: unset;
-                        right: 100% !important;
-                        transform: translateX(100%) translateY(10px) !important;
-                        color: var(--red-600) !important;
-                        width: max-content !important;
-                        position: absolute;
-                        z-index: 99999 !important;
-                        background: var(--background-0, #fff);
-                        box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-                        border-radius: 4px;
-
-                        .p-menubar-item {
-                            position: relative;
-
-                            &:hover,
-                            &.is-active {
-                                background-color: var(--primary-50, rgb(0 0 0 / 4%));
-                                border-radius: 4px;
-                            }
-
-                            .p-menubar-item-content {
-                                width: auto !important;
-                                white-space: nowrap;
-                                color: var(--blue-700);
-                                opacity: 0.8;
-
-                                .icons {
-                                    color: var(--blue-700);
-                                }
-
-                                .right-icon {
-                                    padding-left: 15px;
-                                }
-                            }
-
-                            // Submenu aninhado (nível 2+)
-                            .p-menubar-submenu-nested {
-                                left: 100% !important;
-                                right: unset !important;
-                                top: 0 !important;
-                                transform: translateX(2px) !important;
-                                position: absolute;
-                                z-index: 100000 !important;
-                            }
-                        }
-                    }
-                }
-
-                // DEFINIÇÕES PARA BARRA DE MENUS (PRIMEIRA CAMADA DE ITENS)
-                > .p-menubar-item {
-                    position: relative;
-
-                    .p-menubar-item-content {
-                        color: var(--primary-500);
-                    }
-
                     &.p-menubar-item-active,
                     &:hover {
                         .p-menubar-item-content {
                             background-color: transparent;
                             opacity: 1;
                         }
+                    }
+
+                    :deep(.p-menubar-submenu) {
+                        position: absolute;
+                        left: unset;
+                        right: 100% !important;
+                        transform: translateX(100%) translateY(10px) !important;
+                        z-index: 99999 !important;
                     }
                 }
             }
