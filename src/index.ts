@@ -125,6 +125,9 @@ export { default as MaxInputTextList } from './components/MaxInputTextList.vue';
 // Mesmo padrão de MaxPdfView/MaxLoaderAi (deps pesadas sob demanda).
 export const MaxInputMarkdown = defineAsyncComponent(() => import('./components/MaxInputMarkdown.vue'));
 export { default as MaxInputMarkdownToolbar } from './components/MaxInputMarkdownToolbar.vue';
+// Async: o MaxInputCode carrega o Monaco Editor sob demanda via @monaco-editor/loader
+export const MaxInputCode = defineAsyncComponent(() => import('./components/MaxInputCode.vue'));
+export { default as MaxInputCodeToolbar } from './components/MaxInputCodeToolbar.vue';
 export { default as MaxInputToggle } from './components/MaxInputToggle.vue';
 export { default as MaxInputTypeAddress } from './components/MaxInputTypeAddress.vue';
 export { default as MaxGridCols } from './components/MaxGridCols.vue';
