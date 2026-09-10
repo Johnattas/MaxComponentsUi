@@ -621,4 +621,29 @@ describe('MaxTopMenu Mobile (estilo AgenteDeBolso)', () => {
 
         expect(wrapper.find('.top-menu-mobile-actions .bug-slot-content').exists()).toBe(false);
     });
+
+    it('renderiza o slot notifications no desktop com suporte a tool-bar-plus', () => {
+        const wrapper = mountWithPinia(MaxTopMenu, {
+            slots: {
+                notifications: '<div class="tool-bar-plus reverb-status-anchor"><div class="bell-icon">Sino</div></div>'
+            }
+        });
+
+        const notifContainer = wrapper.find('.tool-bar-plus.reverb-status-anchor');
+        expect(notifContainer.exists()).toBe(true);
+        expect(notifContainer.find('.bell-icon').text()).toBe('Sino');
+    });
+
+    it('renderiza o slot notifications no mobile dentro de top-menu-mobile-actions', () => {
+        const wrapper = mountWithPinia(MaxTopMenu, {
+            attrs: { screen: 'mobile' },
+            slots: {
+                notifications: '<div class="tool-bar-plus reverb-status-anchor"><div class="bell-icon">Sino Mobile</div></div>'
+            }
+        });
+
+        const notifContainer = wrapper.find('.top-menu-mobile-actions .tool-bar-plus.reverb-status-anchor');
+        expect(notifContainer.exists()).toBe(true);
+        expect(notifContainer.find('.bell-icon').text()).toBe('Sino Mobile');
+    });
 });

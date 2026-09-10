@@ -111,7 +111,12 @@
         noPicker: false
     });
 
-    const size_icon = computed(() => getCssSize(String(props.size ?? props.sizeIcon ?? props.iconSize ?? 1.1)) );
+    const size_icon = computed(() => {
+        const raw = props.size ?? props.sizeIcon ?? props.iconSize ?? 1.1;
+        const factor = Number(raw);
+        if (!isNaN(factor)) return `${factor}rem`;
+        return getCssSize(String(raw));
+    });
 
     const id = ref(useId());
 
@@ -223,11 +228,13 @@
 
 <style lang="scss" scoped>
 .max-popover-main {
+    position: relative;
     cursor: pointer;
     display: grid;
     place-items: center;
 
     .max-popover-icon {
+        position: relative;
         display: grid;
         place-items: center;
     }

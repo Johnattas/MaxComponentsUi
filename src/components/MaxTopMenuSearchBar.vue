@@ -133,37 +133,56 @@
         position: relative;
         display: grid;
         width: 100%;
-        height: 36px;
+        height: 38px;
         place-items: center;
+
+        :deep(.max-input-main-div) {
+            grid-template-rows: 1fr !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        :deep(.input-message) {
+            display: none !important;
+        }
 
         :deep(.max-input-field-div) {
             border: none !important;
             outline: rgb(255 255 255 / 10%) 1px solid !important;
             background-color: rgb(0 0 0 / 10%) !important;
+            height: 38px !important;
+            width: 100% !important;
+            border-radius: 8px;
         }
 
         .search-top-bar-input {
             position: relative;
-            max-width: 400px;
+            width: 100%;
+            max-width: 520px;
             display: flex;
+            align-items: center;
 
             :deep(input) {
                 border-color: rgb(255 255 255 / 7%);
                 background-color: rgb(255 255 255 / 7%);
                 color: rgb(255 255 255 / 70%);
-                padding-left: 35px !important;
+                padding: 0 12px 0 38px !important;
+                height: 100% !important;
+                font-size: 0.9rem;
             }
 
             :deep(.max-icon-div) {
+                margin-left: 6px;
+
                 svg {
-                    color: rgb(255 255 255 / 20%) !important;
+                    color: rgb(255 255 255 / 40%) !important;
                 }
             }
 
             :deep(.checkbox-search-top) {
                 position: absolute;
-                right: 15px;
-                bottom: 8px;
+                right: 12px;
+                bottom: 9px;
                 display: grid;
                 place-items: center start;
 
@@ -189,10 +208,6 @@
             min-height: 16px !important;
             height: 16px !important;
             transform: translateX(-45px) !important;
-        }
-
-        :deep(input) {
-            padding: 0 !important;
         }
 
         :deep(.p-checkbox-input) {

@@ -243,6 +243,14 @@
             gap: 1.125rem;
             padding-left: 5px;
 
+            :deep(.tool-bar-plus) {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                display: grid;
+                place-items: center;
+            }
+
             .mobile-user-avatar {
                 display: grid;
                 place-items: center;
@@ -304,7 +312,9 @@
                 place-items: center;
             }
 
+            :deep(.tool-bar-plus),
             .tool-bar-plus {
+                position: relative;
                 width: 30px;
                 height: 30px;
                 display: grid;
